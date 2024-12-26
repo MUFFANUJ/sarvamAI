@@ -113,8 +113,8 @@ const handleVoiceChange = (event) => {
                   <div className="t-body-chat relative h-full space-y-6 px-5 text-primary-700 w-full mx-auto max-w-1.5xl 2xl:max-w-[47rem]">
                     <div className="relative h-8 shrink-0 2xl:h-12 z-30"></div>
                     <div className="w-full h-14"></div>
-                    <div className="pb-6 lg:pb-8 min-h-[calc(100%-60px)] sm:min-h-[calc(100%-120px)]">
-                      <div className="relative space-y-6">
+                    <div className="pb-6 lg:pb-8 min-h-[calc(100%-60px)] sm:min-h-[calc(100%-120px)] flex justify-center">
+                      <div className="relative space-y-6 w-2/3 text-center">
                         <div className="space-y-6">
                           <div className="break-anywhere">
                             <div className="flex items-center">
@@ -149,10 +149,10 @@ const handleVoiceChange = (event) => {
               style={{opacity: "1"}}
             >
               <div className="relative flex  items-center h-full w-full cursor-text items-end border border-transparent bg-neutral-25 shadow-input transition-all duration-300 focus-within:border-neutral-400 focus-within:shadow-none hover:border-neutral-400 hover:shadow-none rounded-[30px] w-3/4">
-                <div className="h-full grow overflow-y-auto py-3 pl-[1.185rem] pr-4 lg:py-2.5 2xl:py-[8.5px]">
+                <div className="h-full grow overflow-y-auto py-3 pl-[1.185rem] pr-4 lg:py-2.5 2xl:py-[8.5px] w-[40vw]">
                   <input
                     role="textbox"
-                    className="t-body-chat block w-full resize-none overflow-y-hidden whitespace-pre-wrap bg-transparent text-primary-700 outline-none placeholder:text-neutral-600 bg-[rgb(252,250,247)]  pl-5 outline-none "
+                    className="t-body-chat block w-full resize-none overflow-y-hidden whitespace-pre-wrap bg-transparent text-primary-700 outline-none placeholder:text-neutral-600   pl-5 outline-none "
                     spellcheck="false"
                     placeholder="Talk with Pi"
                     value={userInput}
