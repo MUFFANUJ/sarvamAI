@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function LoginSignUp() {
   return (
     <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
       <div class="bg-card-background">
         <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
-          <button
+          <Link
             aria-label="Go back"
             class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap"
             type="button"
+            to="/profile"
           >
             <svg
               viewBox="0 0 24 24"
@@ -23,7 +25,7 @@ export default function LoginSignUp() {
                 fill="currentColor"
               ></path>
             </svg>
-          </button>
+          </Link>
           <div class="grow text-primary-700">
             <h1 class="t-body-m m-0 pr-9 text-center">Account</h1>
           </div>

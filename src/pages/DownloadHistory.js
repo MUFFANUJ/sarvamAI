@@ -1,14 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function DownloadHistory() {
   return (
     <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
       <div class="bg-card-background">
         <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
-          <button
+          <Link
             aria-label="Go back"
             class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap"
             type="button"
+            to="/profile"
           >
             <svg
               viewBox="0 0 24 24"
@@ -23,7 +25,7 @@ export default function DownloadHistory() {
                 fill="currentColor"
               ></path>
             </svg>
-          </button>
+          </Link>
           <div class="grow text-primary-700">
             <h1 class="t-body-m m-0 pr-9 text-center">Manage history</h1>
           </div>
@@ -71,6 +73,7 @@ export default function DownloadHistory() {
             target="_blank"
             title="Data Transfer Initiative"
             href="https://dtinit.org/"
+            className="text-blue-600"
           >
             <u>Data Transfer Initiative</u>
           </a>{" "}
@@ -82,7 +85,7 @@ export default function DownloadHistory() {
           read easily and bring with you.
         </p>
         <button
-          class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-neutral-50 bg-primary-700 hover:bg-primary-700-hover active:bg-primary-700-tap mx-auto mt-5"
+          class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-neutral-50 bg-green-700 hover:bg-primary-700-hover active:bg-primary-700-tap mx-auto mt-5"
           type="button"
         >
           Download your Pi history

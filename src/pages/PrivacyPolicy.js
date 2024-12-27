@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function PrivacyPolicy() {
   return (
@@ -6,10 +7,11 @@ export default function PrivacyPolicy() {
       <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
         <div class="bg-card-background">
           <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
-            <button
+            <Link
               aria-label="Go back"
               class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap"
               type="button"
+              to="/profile"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -24,7 +26,7 @@ export default function PrivacyPolicy() {
                   fill="currentColor"
                 ></path>
               </svg>
-            </button>
+            </Link>
             <div class="grow text-primary-700">
               <h1 class="t-body-m m-0 pr-9 text-center">Privacy policy</h1>
             </div>
@@ -58,30 +60,6 @@ export default function PrivacyPolicy() {
                 other modes of communication (such as SMS or instant messaging),
                 and any other sites or services that link to this Privacy Policy
                 (collectively, the “Services”).
-              </p>
-              <h3>Our General Approach</h3>
-              <p>
-                Conversational artificial intelligence is at the technological
-                frontier. We believe that this emerging technology will
-                fundamentally change the way that we engage with and think about
-                computers in our everyday lives. Ultimately, our goal is to use
-                AI to build safe, smart, kind, and engaging conversational
-                partners.
-              </p>
-              <p>
-                Our Privacy Policy reflects our belief that achieving this goal
-                and making the technology truly useful for all will require a
-                deep understanding of how our users talk and collaborate with
-                AIs. As users interact with our AIs, we learn a lot about how to
-                make AI better and more useful to you.
-              </p>
-              <p>
-                Users deserve transparency regarding how that process works,
-                particularly when it comes to their data. This Policy is one
-                part of that transparency. It documents what data we collect,
-                how we keep it secure, and describes how we use that data to
-                improve our Services for everyone. Here are the top level
-                points:
               </p>
               <ul>
                 <li>
@@ -164,36 +142,6 @@ export default function PrivacyPolicy() {
                   our communications.
                 </li>
               </ul>
-              <p>We use the following tools for automatic data collection:</p>
-              <ul>
-                <li>
-                  <strong>Cookies,</strong> which are text files that websites
-                  store on a visitor‘s device to uniquely identify the visitor’s
-                  browser or to store information or settings in the browser for
-                  the purpose of helping you navigate between pages efficiently,
-                  remembering your preferences, enabling functionality, and
-                  helping us understand user activity and patterns.
-                </li>
-                <li>
-                  <strong>Local storage technologies,</strong> like HTML5, that
-                  provide cookie-equivalent functionality but can store larger
-                  amounts of data, including on your device outside of your
-                  browser in connection with specific applications.
-                </li>
-                <li>
-                  <strong>Web beacons,</strong> also known as pixel tags or
-                  clear GIFs, which are used to demonstrate that a webpage or
-                  email was accessed or opened, or that certain content was
-                  viewed or clicked.
-                </li>
-              </ul>
-              <p>
-                <strong>Information we obtain from other sources.</strong> If
-                you choose to contact or otherwise interact with our Services
-                over a third-party messaging platform such as Facebook Messenger
-                or Instagram, we will collect an identifier of your profile on
-                these platforms.
-              </p>
               <p>
                 <strong>Sensitive data.</strong> In your conversations with the
                 Services, you may choose to provide sensitive information. This
@@ -244,19 +192,6 @@ export default function PrivacyPolicy() {
                 </li>
               </ul>
               <p>
-                <strong>Research and development.</strong> We may use personal
-                information for research and development purposes where it is in
-                our legitimate business interests, including to analyze and
-                improve the Services and our business. As part of these
-                activities, we may create or use aggregated, de-identified or
-                other anonymized data from personal information we collect. We
-                make personal information into anonymized data by removing
-                information that makes the data personally identifiable to you.
-                We may use this anonymized data and share it with third parties
-                for our lawful business purposes, including to analyze and
-                improve the Services and promote our business.
-              </p>
-              <p>
                 <strong>Compliance and protection.</strong> We may use personal
                 information to comply with legal obligations, and to defend us
                 against legal claims or disputes, including to:
@@ -284,39 +219,13 @@ export default function PrivacyPolicy() {
                   government authorities.
                 </li>
               </ul>
-              <h3>Sharing Your Information</h3>
-              <p>
-                We do not sell or share your personal information with
-                third-parties for interest-based advertising purposes . We may
-                disclose your personal information as described below:
-              </p>
-              <p>
-                <strong>Service providers.</strong> We may rely on third-party
-                service providers in furtherance of the purposes described
-                above. In these cases, personal information may be accessed by
-                these third-parties and processed or stored on our behalf. These
-                service providers can include hosting services, cloud computing
-                and storage services, maintenance services, security services,
-                and customer support services. We also may share hashes of names
-                and phone numbers and limited device data for advertising
-                attribution and measurement services. This means that the
-                recipient can recognize your name and phone number only if they
-                already have that information from another source.
-              </p>
+              
               <p>
                 <strong>Business transferees.</strong> Personal information may
                 be transferred to another entity in the event of a bankruptcy,
                 change of control, or shutdown of Inflection AI. We may also
                 transfer personal information in the course of a sale or merger
                 of the business.
-              </p>
-              <p>
-                <strong>Authorities and others.</strong> If we are legally
-                obliged or otherwise believe it necessary to do so, personal
-                information may be disclosed to regulatory agencies, law
-                enforcement agencies, courts, and other government authorities,
-                including for the compliance and protection purposes described
-                above.
               </p>
               <h3>Privacy Rights and Choices</h3>
               <p>
@@ -325,67 +234,10 @@ export default function PrivacyPolicy() {
                 <a href="#contact-us">How to Contact Us</a> section below.
               </p>
               <p>
-                <strong>Opt out of SMS messaging.</strong> If you wish to opt
-                out of receiving text messages from Pi, reply with STOP to any
-                mobile message sent from us. Please note that this may prevent
-                us from sending one-time codes to your phone and may limit your
-                experience. If you would like to allow these codes but disable
-                all other messages, reply with PAUSE to any mobile message sent
-                from us.
-              </p>
-              <p>
                 <strong>Online tracking technologies opt-out.</strong> You can
                 opt out of third-party cookies as described in our{" "}
                 <a href="#cookie-policy">Cookie Policy</a>.
               </p>
-              <p>
-                <strong>Personal information requests.</strong> We offer you
-                choices that affect how we handle the personal information that
-                we control. Depending on your location and the nature of your
-                interactions with our Services, you may request the following in
-                relation to your personal information:Personal information
-                requests. We offer you choices that affect how we handle the
-                personal information that we control. Depending on your location
-                and the nature of your interactions with our Services, you may
-                request the following in relation to your personal information:
-              </p>
-              <ul>
-                <li>
-                  <strong>Information</strong> about how we have collected and
-                  used personal information. We have made this information
-                  available to you without having to request it by including it
-                  in this Privacy Policy.
-                </li>
-                <li>
-                  <strong>Access</strong> to a copy of the personal information
-                  that we have collected about you. Where applicable, we will
-                  provide the information in a portable, machine-readable,
-                  readily usable format.
-                </li>
-                <li>
-                  <strong>Correction</strong> of personal information that is
-                  inaccurate or out of date.
-                </li>
-                <li>
-                  <strong>Deletion</strong> of personal information that we no
-                  longer need to provide the Services or for other lawful
-                  purposes.
-                </li>
-                <li>
-                  <strong>Withdrawal of consent</strong>, where we have
-                  collected and processed your personal information with your
-                  consent. Withdrawing your consent will not affect the
-                  lawfulness of any processing we conducted prior to your
-                  withdrawal, nor will it affect processing of your personal
-                  information conducted in reliance on lawful processing grounds
-                  other than consent.
-                </li>
-                <li>
-                  <strong>Additional rights</strong>, such as to{" "}
-                  <strong>object</strong> to and request that we{" "}
-                  <strong>restrict</strong> our use of personal information.
-                </li>
-              </ul>
               <p>
                 To make a request, please email us or write to us as provided in
                 the <a href="#contact-us">How to Contact Us</a> section below.
@@ -447,32 +299,8 @@ export default function PrivacyPolicy() {
                 and you acknowledge and accept that your use of our Services is
                 ultimately at your own risk.
               </p>
-              <p>
-                Also, please note that you are responsible for managing access
-                to any accounts that you maintain with Inflection AI. Failure to
-                limit access to your devices or browser might enable
-                third-parties to have unauthorized access to your personal
-                information.
-              </p>
-              <p>
-                <strong>Third-Party Websites and Content</strong>
-              </p>
-              <p>
-                Please be advised that you may encounter links or content
-                through our Services that are provided by third-parties that
-                Inflection AI does own or otherwise control. You acknowledge
-                that any data you provide to these third-parties shall be
-                governed solely by the terms of service, privacy policies, and
-                other terms applicable to those third-parties.
-              </p>
-              <h3>Children</h3>
-              <p>
-                Our Services are not intended for minors under the age of 18. We
-                do not knowingly collect or solicit personal information from
-                minors under the age of 18. If you are a minor under the age of
-                18, please do not attempt to use our Services, register an
-                account with us, or send any personal information to us.
-              </p>
+             
+              
               <p>
                 If you believe that a minor under the age of 18 has provided
                 personal information to us or is otherwise using our Services,
@@ -487,24 +315,6 @@ export default function PrivacyPolicy() {
                 and we will seek to delete this information and revoke access as
                 quickly as possible.
               </p>
-              <h3>Retention</h3>
-              <p>
-                Where required under applicable laws, we retain personal
-                information only for as long as is necessary to fulfill the
-                purposes for which it was collected and processed, in accordance
-                with our retention policies, and in accordance with applicable
-                laws and regulatory obligations or until you withdraw your
-                consent (where applicable).
-              </p>
-              <p>
-                To determine the appropriate retention period for personal
-                information, we consider the amount, nature, and sensitivity of
-                the personal information, the potential risk of harm from
-                unauthorized use or disclosure of personal information, the
-                purposes for which we use personal information and whether we
-                can achieve those purposes through other means, and the
-                applicable legal and regulatory requirements.
-              </p>
               <h3>International Data Transfers</h3>
               <p>
                 You will provide personal information directly to our Services
@@ -515,27 +325,6 @@ export default function PrivacyPolicy() {
                 protection laws in your home country.
               </p>
               <h3>Job Applicants</h3>
-              <p>
-                When you visit the careers portion of our websites, we collect
-                the information that you provide to us in connection with your
-                job application. This includes but is not limited to business
-                and personal contact information, professional credentials and
-                skills, educational and work history and other information of
-                the type that may be included in a resume. This may also include
-                diversity information that you voluntarily provide. We use this
-                information on the basis of our legitimate business interests to
-                facilitate our recruitment activities and process employment
-                applications, such as by evaluating a job candidate for an
-                employment activity, to monitor recruitment statistics and to
-                respond to surveys. We may also use this information to provide
-                improved administration of the Services and as otherwise
-                necessary (i) to comply with relevant laws or to respond to
-                subpoenas or warrants served on us, (ii) to protect and defend
-                our or others’ rights or property, (iii) in connection with a
-                legal investigation and (iv) to investigate or assist in
-                preventing any violation or potential violation of the law, this
-                Privacy Policy or our Terms of Service.
-              </p>
               <h3>Changes To This Policy</h3>
               <p>
                 We are continuing to iterate on our Services, and this Privacy
@@ -567,15 +356,6 @@ export default function PrivacyPolicy() {
                 </a>{" "}
                 if you have any questions or concerns pertaining to this Privacy
                 Policy.
-              </p>
-              <p class="mt-4 sm:mt-8 md:mt-12">
-                <strong>EEA and UK representative contact information.</strong>
-                For users in the EEA, we have appointed DataRep, at The Cube,
-                Monahan Road, Cork, T12 H1XY, Republic of Ireland, as our EU
-                data representative, and DataRep, at 107-111 Fleet Street,
-                London, EC4A 2AB, United Kingdom as our UK data representative.
-                You can contact our representatives at the addresses above or
-                alternatively through the DataRep webform.
               </p>
             </div>
             <hr class="my-12" />
@@ -661,14 +441,7 @@ export default function PrivacyPolicy() {
                       <td>Service providers</td>
                       <td>No</td>
                     </tr>
-                    <tr>
-                      <td>Biometric information</td>
-                      <td>No</td>
-                      <td>N/A</td>
-                      <td>N/A</td>
-                      <td>N/A</td>
-                      <td>N/A</td>
-                    </tr>
+                    
                     <tr>
                       <td>
                         Internet or other electronic network activity
@@ -677,10 +450,6 @@ export default function PrivacyPolicy() {
                       </td>
                       <td>Yes</td>
                       <td>When you visit or use our Services</td>
-                      <td>
-                        To provide our Services; to improve, monitor, and
-                        personalize our Services
-                      </td>
                       <td>Service providers</td>
                       <td>No</td>
                     </tr>
@@ -794,15 +563,6 @@ export default function PrivacyPolicy() {
                 websites.
               </p>
               <p>
-                <strong>Local storage.</strong> Local storage technologies refer
-                to the methods that websites and applications use to store data
-                locally on your device. The most commonly used local storage
-                technology is called “local Storage” and is part of the HTML5
-                standard. This technology allows websites or applications to
-                store data that persists even after the user closes their
-                browser or application, or restarts their device.
-              </p>
-              <p>
                 <strong>Session storage.</strong> Session storage is a feature
                 of your web browser or device that allows a website or
                 application to temporarily store data on your device while you
@@ -812,60 +572,6 @@ export default function PrivacyPolicy() {
                 use session storage to improve your experience and ensure that
                 certain information is readily available during your browsing
                 session.
-              </p>
-              <p>
-                <strong>Other tracking technologies.</strong> Websites and apps
-                use a variety of other tracking technologies too, including web
-                beacons (also known as tracking pixels), third-party tracking
-                scripts, and analytics tools. These technologies provide data on
-                how visitors use websites. We may also use web beacons and
-                “clear GIFs” in communications with you to allow us to count how
-                many people read them and to verify any clicks through to links
-                within an email. If you do not wish for the web beacon to be
-                downloaded onto your device, you should select to receive emails
-                from us in plain text rather than HTML.
-              </p>
-              <p>
-                This Cookie Policy refers to all these technologies collectively
-                as “cookies.”
-              </p>
-              <h3>2. What type of information do cookies collect?</h3>
-              <p>
-                We and our service providers may automatically log and combine
-                information about you, your computer or mobile device, and your
-                interaction over time with the Services, online resources and
-                our communications, such as:
-              </p>
-              <ul>
-                <li>
-                  Device data such as your computer’s or mobile device’s
-                  operating system type and version, manufacturer and model,
-                  browser type, screen resolution, device type (e.g., phone,
-                  tablet), IP address, unique identifiers, language settings and
-                  general location information such as city, state or geographic
-                  area.
-                </li>
-                <li>
-                  Online activity data such as pages or screens you viewed, how
-                  long you spent on a page or screen, the website you visited
-                  before browsing to the Services, navigation paths between
-                  pages or screens, information about your activity on a page or
-                  screen, access times, duration of access and whether you have
-                  opened or otherwise engage with our communications.
-                </li>
-              </ul>
-              <p>
-                We use both persistent cookies and session cookies. Persistent
-                cookies stay on your device for a set period of time or until
-                you delete them, while session cookies are deleted once you
-                close your web browser.
-              </p>
-              <h3>3. Why do we use cookies?</h3>
-              <p>
-                <strong>We only use essential cookies.</strong> These cookies
-                are strictly necessary to provide you with our Services, by, for
-                example, providing page navigation and access to secure areas of
-                the Services.
               </p>
               <h3>4. How can you control cookies?</h3>
               <p>

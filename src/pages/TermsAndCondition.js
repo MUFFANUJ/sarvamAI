@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function TermsAndCondition() {
   return (
@@ -6,10 +7,11 @@ export default function TermsAndCondition() {
       <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
         <div class="bg-card-background">
           <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
-            <button
+            <Link
               aria-label="Go back"
               class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap"
               type="button"
+              to="/profile"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -24,7 +26,7 @@ export default function TermsAndCondition() {
                   fill="currentColor"
                 ></path>
               </svg>
-            </button>
+            </Link>
             <div class="grow text-primary-700">
               <h1 class="t-body-m m-0 pr-9 text-center">Terms of service</h1>
             </div>
@@ -46,19 +48,6 @@ export default function TermsAndCondition() {
                 as any other written policies and documentation that we may
                 provide from time to time. You agree to use our Services in
                 compliance with these Terms.
-              </p>
-              <p>
-                Your use of our Services in any manner means that you agree to
-                the Terms. Unfortunately, if you do not agree with these Terms,
-                you may not access or use our Services.
-              </p>
-              <h3>Our Services</h3>
-              <p>
-                Inflection AI believes that conversational AI will fundamentally
-                reshape the way that we interact and use computers in our
-                everyday lives. As you interact with our Services, we will learn
-                more about how to make this emerging technology ever more
-                helpful, collaborative, and fun to communicate with.
               </p>
               <p>
                 Given the early state of this technology, we also acknowledge
@@ -215,44 +204,6 @@ export default function TermsAndCondition() {
                   our Services, either via manual or automated means.
                 </li>
               </ul>
-              <h3>Content</h3>
-              <p>
-                You will input text and other forms of media (“Content”) during
-                your use of our Services. You agree that you shall not input any
-                Content that is not owned by you unless you have prior written
-                consent from the relevant rightsholder of that Content.
-              </p>
-              <p>
-                While you will own any Content, you agree to provide a
-                royalty-free, perpetual, irrevocable, and worldwide license to
-                Inflection AI to the Content for the following limited purposes:
-              </p>
-              <ul>
-                <li>
-                  <span class="underline">Operating the Services</span>: You
-                  grant Inflection AI a license to use, reproduce, modify, or
-                  otherwise act on the Content in order to enable the provision
-                  and maintenance of the Services. This includes uses to comply
-                  with applicable laws, enable the provision of our Services
-                  across channels and platforms, ensure user safety and
-                  security, and enforce our policies.
-                </li>
-                <li>
-                  <span class="underline">Improving the Services</span>: You
-                  grant Inflection AI a license to use the Content to improve
-                  our Services and develop new Services. This license shall
-                  permit uses including but not limited to analysis of the
-                  content of conversations to understand opportunities for new
-                  features, the use of Content for model training and
-                  fine-tuning, and evaluating the performance of our existing
-                  Services.
-                </li>
-              </ul>
-              <p>
-                This license should be read alongside our Privacy Policy, which
-                details how we use the Content and manage it internally. Please
-                review it carefully.
-              </p>
               <h3>Intellectual Property</h3>
               <ul>
                 <li>
@@ -313,65 +264,6 @@ export default function TermsAndCondition() {
                   </ul>
                 </li>
               </ul>
-              <h3>Telephonic Communications Services</h3>
-              <p>
-                By using the Services and providing us with your telephone
-                number(s), you are consenting to be contacted by Inflection AI
-                by telephone (including on a recorded line), automated calling,
-                automated telephone dialing system calling, automated system
-                calling, artificial voice or pre-recorded calling, text message,
-                SMS and/or MMS message, or other telephonic or electronic means
-                for marketing, solicitation, informational or another purposes,
-                even if your telephone number(s) is registered on the National
-                Do Not Call List, a state Do not Call List, or the internal Do
-                Not Call List of Inflection AI. You may be required to respond
-                to an initial call or message as instructed to complete your
-                registration and confirm enrollment to receive such calls, texts
-                or other telephonic communications. You do not have to consent
-                to receive calls or text messages from Inflection AI for
-                marketing or solicitation purposes to purchase any Inflection AI
-                products or services. In the event you no longer wish to receive
-                such calls, text messages or other telephonic communications,
-                you agree to notify Inflection AI directly. In the event you
-                change or deactivate your telephone number, you agree to
-                promptly update your Inflection AI account information to ensure
-                that your messages are not sent to a person that acquires your
-                old telephone number.
-              </p>
-              <p>
-                There is no additional charge for telephonic communications, but
-                your carrier’s standard message and data rates apply to any
-                calls, text messages, SMS or MMS messages you send or receive.
-                Message frequency may vary. Your carrier may prohibit or
-                restrict certain mobile features and certain mobile features may
-                be incompatible with your carrier or mobile device. We are not
-                liable for any delays in the receipt of, or any failures to
-                receive, any calls, text messages, SMS or MMS messages, as
-                delivery is subject to effective transmission by your mobile
-                carrier and compatibility of your mobile device. Please contact
-                your mobile carrier if you have any questions regarding these
-                issues or your mobile data and messaging plan. Carriers are not
-                liable for delayed or undelivered messages.
-              </p>
-              <p>
-                By reply to any text, SMS or MMS message you receive from us,
-                you may text “STOP” to cancel or “HELP” for customer support
-                information. You can also get help directly at{" "}
-                <a
-                  href="mailto:support@pi.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  support@pi.ai
-                </a>
-                . If you choose to cancel text, SMS or MMS messages from us, you
-                agree to receive a final message from us confirming your
-                cancellation. Please note that if you text “STOP”, this may
-                prevent us from sending one-time codes to your phone and may
-                limit your experience. If you would like to allow these codes
-                but disable all other messages, reply with “PAUSE” to any
-                message sent from us.
-              </p>
               <p>
                 If you have any questions regarding privacy, please read our
                 Privacy Policy.
@@ -398,15 +290,6 @@ export default function TermsAndCondition() {
                 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND
                 NON-INFRINGEMENT.
               </p>
-              <p>
-                INFLECTION AI MAKES NO WARRANTY THAT (A) THE SERVICES WILL MEET
-                YOUR REQUIREMENTS; (B) THE SERVICES WILL BE UNINTERRUPTED,
-                TIMELY, SECURE, OR ERROR-FREE; (C) THE RESULTS THAT MAY BE
-                OBTAINED FROM THE USE OF THE SERVICES WILL BE ACCURATE OR
-                RELIABLE; OR (D) THE QUALITY OF ANY PRODUCTS, SERVICES,
-                INFORMATION, OR OTHER MATERIAL PURCHASED OR OBTAINED BY YOU
-                THROUGH THE SERVICE WILL MEET YOUR EXPECTATIONS.
-              </p>
               <h3>Third Party Services and Websites</h3>
               <p>
                 The Services may provide links or other access to services,
@@ -422,25 +305,6 @@ export default function TermsAndCondition() {
                 our use, storage and disclosure of information related to you
                 and your use of such Third-Party Services within the Service,
                 please see our Privacy Policy.
-              </p>
-              <p>
-                Inflection AI has no control over and is not responsible for
-                such Third-Party Services, including for the accuracy,
-                availability, reliability, or completeness of information shared
-                by or available through Third-Party Services, or on the privacy
-                practices of Third-Party Services. We encourage you to review
-                the privacy policies of the third parties providing Third-Party
-                Services prior to using such services. You, and not Inflection
-                AI, will be responsible for any and all costs and charges
-                associated with your use of any Third-Party Services. Inflection
-                AI enables these Third-Party Services merely as a convenience
-                and the integration or inclusion of such Third-Party Services
-                does not imply an endorsement or recommendation. Any dealings
-                you have with third parties while using the Service are between
-                you and the third party. Inflection AI will not be responsible
-                or liable, directly or indirectly, for any damage or loss caused
-                or alleged to be caused by or in connection with use of or
-                reliance on any Third-Party Services.
               </p>
               <h3>Terminating Your Account</h3>
               <p>
@@ -472,16 +336,6 @@ export default function TermsAndCondition() {
                 their nature - should survive termination of the Terms, shall
                 survive.
               </p>
-              <h3>Changes to the Services</h3>
-              <p>
-                Artificial intelligence is a fast-moving field, and Inflection
-                AI is continually working to make our Services better for our
-                users. This means that our Services can and will change over
-                time. Inflection AI may augment, modify, discontinue, or suspend
-                any part of our Services at any time. We will work to provide
-                advance notice to you where appropriate, but you acknowledge
-                that this may not always be possible.
-              </p>
               <h3>Changes to These Terms</h3>
               <p>
                 Inflection AI reserves the right to amend these Terms at any
@@ -505,18 +359,6 @@ export default function TermsAndCondition() {
                   user is in violation of any of the provisions of these Terms.
                 </li>
                 <li>
-                  <span class="underline">Indemnification</span>: To the fullest
-                  extent allowed by applicable law, you agree to indemnify and
-                  hold Inflection AI, its affiliates, officers, agents,
-                  employees, and partners harmless from and against any and all
-                  claims, liabilities, damages (actual and consequential),
-                  losses and expenses (including attorneys’ fees) arising from
-                  or in any way related to any third party claims relating to
-                  (a) your use of our Services (including any actions taken by a
-                  third party using your account), and (b) your violation of
-                  these Terms.
-                </li>
-                <li>
                   <span class="underline">Assignment</span>: You may not assign
                   or delegate any rights or obligations under these Terms,
                   including in connection with a change of control. Any
@@ -530,26 +372,6 @@ export default function TermsAndCondition() {
                   governed by and will be construed under applicable federal law
                   and the laws of the State of California, without regard to the
                   conflicts of laws provisions thereof.
-                </li>
-                <li>
-                  <span class="underline">Arbitration</span>: Any dispute
-                  arising from or relating to the subject matter of these Terms
-                  shall be finally settled by arbitration in Santa Clara County,
-                  California, in accordance with the Streamlined Arbitration
-                  Rules and Procedures of Judicial Arbitration and Mediation
-                  Services, Inc. (“JAMS”) then in effect, by one commercial
-                  arbitrator with substantial experience in resolving
-                  intellectual property and commercial contract disputes, who
-                  shall be selected from the appropriate list of JAMS
-                  arbitrators in accordance with the Streamlined Arbitration
-                  Rules and Procedures of JAMS. Judgment upon the award so
-                  rendered may be entered in a court having jurisdiction, or
-                  application may be made to such court for judicial acceptance
-                  of any award and an order of enforcement, as the case may be.
-                  Notwithstanding the foregoing, you and Inflection AI shall
-                  have the right to institute an action in a court of proper
-                  jurisdiction for injunctive or other equitable relief pending
-                  a final decision by the arbitrator.
                 </li>
                 <li>
                   <span class="underline">Jurisdiction and Venue</span>: For all

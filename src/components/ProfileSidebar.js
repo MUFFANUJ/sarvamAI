@@ -7,10 +7,11 @@ export default function ProfileSidebar() {
       <div class="w-full lg:w-[375px] lg:shrink-0 lg:border-r lg:border-neutral-300 flex flex-col">
         <div class="bg-card-background">
           <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-6">
-            <button
+            <Link
               aria-label="Go back"
               class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap lg:hidden"
               type="button"
+              to="/profile"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -25,9 +26,9 @@ export default function ProfileSidebar() {
                   fill="currentColor"
                 ></path>
               </svg>
-            </button>
+            </Link>
             <div class="grow text-primary-700">
-              <h1 class="font-condensed text-h-l-mobile hidden lg:block">
+              <h1 class="font-condensed text-h-l-mobile hidden lg:block text-2xl">
                 Profile
               </h1>
             </div>

@@ -1,22 +1,32 @@
-import React from "react";
-import gridOrderObjects from "../store/data.js"
+import React, { useContext, useEffect } from "react";
+import gridOrderObjects from "../store/data.js";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/context.js";
 
 export default function CollapseSideBar() {
-  
-    return (
+  const { setUserInput, userInput, aiResponse, sendReq, setSendReq } = useContext(GlobalContext);
+  useEffect(() => {
+    if (!sendReq) return;
+    if (userInput) {
+      aiResponse();
+    }
+    setSendReq(false)
+  }, [userInput, sendReq]);
+
+  return (
     <div>
       <div class="no-scrollbar bg-[rgb(246,239,228)] lg:pt-8 w-[27vw] h-[100vh] overflow-y-scroll">
         <h2 class="mb-6 px-6">
-          <div class="font-condensed text-h-m text-primary-700">
+          <div class="font-condensed text-h-m text-primary-700 text-2xl font-openSans">
             Good morning
           </div>
         </h2>
         <h2 class="mb-6 px-6">
-          <div class="mb-6 flex items-center rounded-20 border border-white bg-[rgb(249,243,235)] p-4 shadow-card transition-all rounded-10 duration-150 hover:scale-95 hover:bg-neutral-50-hover"
-          style={{
-            borderRadius: "15px",
-          }}
+          <div
+            class="mb-6 flex items-center rounded-20 border border-white bg-[rgb(249,243,235)] p-4 shadow-card transition-all rounded-10 duration-150 hover:scale-95 hover:bg-neutral-50-hover"
+            style={{
+              borderRadius: "15px",
+            }}
           >
             <div class="pr-4">
               <svg
@@ -67,38 +77,44 @@ export default function CollapseSideBar() {
         </h2>
         <div class="px-6 pb-6">
           <div class="grid grid-cols-2 gap-4 overflow-y-auto sm:grid-cols-4 lg:grid-cols-2">
-          {gridOrderObjects.map((card) => (
-        <button
-          key={card.gridOrder}
-          className={card.btnClass}
-          type="button"
-          style={card.style}
-        >
-          <div className={card.imageDivClass}>
-            <div className={card.imageInnerDivClass}>
-              <img
-                alt={card.text}
-                loading="lazy"
-                decoding="async"
-                data-nimg="fill"
-                className="object-cover"
-                sizes="(max-width: 639px) 284px, (max-width: 1023px) 230px, 150px"
-                src={card.imageSrc}
-                style={{
-                  position: "absolute",
-                  height: "100%",
-                  width: "100%",
-                  inset: "0px",
-                  color: "transparent",
-                  borderRadius: "15px",
-                }}
-              />
-            </div>
-            <div className={card.textDivClass}></div>
-            <div className={card.textDivInnerClass}>{card.text}</div>
-          </div>
-        </button>
-      ))}
+            {gridOrderObjects.map((card) => (
+              <button
+                key={card.gridOrder}
+                className={card.btnClass}
+                type="button"
+                style={card.style}
+              >
+                <div
+                  className={card.imageDivClass}
+                  onClick={() => {
+                    setSendReq(true);
+                    setUserInput(card.text);
+                  }}
+                >
+                  <div className={card.imageInnerDivClass}>
+                    <img
+                      alt={card.text}
+                      loading="lazy"
+                      decoding="async"
+                      data-nimg="fill"
+                      className="object-cover"
+                      sizes="(max-width: 639px) 284px, (max-width: 1023px) 230px, 150px"
+                      src={card.imageSrc}
+                      style={{
+                        position: "absolute",
+                        height: "100%",
+                        width: "100%",
+                        inset: "0px",
+                        color: "transparent",
+                        borderRadius: "15px",
+                      }}
+                    />
+                  </div>
+                  <div className={card.textDivClass}></div>
+                  <div className={card.textDivInnerClass}>{card.text}</div>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </div>
