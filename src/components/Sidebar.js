@@ -9,10 +9,10 @@ function Sidebar({ sideOptions, setSideOptions }) {
             className="flex h-16 w-16 flex-col items-center justify-center rounded-xl text-neutral-900 hover:bg-neutral-50-hover hover:text-neutral-900-hover active:bg-neutral-50-tap active:text-neutral-900-tap gap-0.5"
             aria-label="Go to Discover page"
             onClick={() => {
-              if (sideOptions === 1) {
-                setSideOptions(0);
-                return;
-              }
+              // if (sideOptions === 1) {
+              //   setSideOptions(0);
+              //   return;
+              // }
               setSideOptions(1);
             }}
           >
@@ -36,10 +36,10 @@ function Sidebar({ sideOptions, setSideOptions }) {
             className="flex h-16 w-16 flex-col items-center justify-center rounded-xl text-neutral-900 hover:bg-neutral-50-hover hover:text-neutral-900-hover active:bg-neutral-50-tap active:text-neutral-900-tap gap-1.5"
             aria-label="Go to Profile page"
             onClick={() => {
-              if (sideOptions === 2) {
-                setSideOptions(0);
-                return;
-              }
+              // if (sideOptions === 2) {
+              //   setSideOptions(0);
+              //   return;
+              // }
               setSideOptions(2);
             }}
           >

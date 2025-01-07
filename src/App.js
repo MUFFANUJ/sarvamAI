@@ -7,9 +7,7 @@ import ChatSpace from "./pages/ChatSpace.js";
 import DownloadHistory from "./pages/DownloadHistory.js";
 import EditVoice from "./pages/EditVoice.js";
 import LoginSignUp from "./pages/LoginSignUp.js";
-import PrivacyPolicy from "./pages/PrivacyPolicy.js";
 import ShareWithOthers from "./pages/ShareWithOthers.js";
-import TermsAndCondition from "./pages/TermsAndCondition.js";
 import Sidebar from "./components/Sidebar.js"
 
 function App() {
@@ -47,9 +45,7 @@ function App() {
                 <Route path="/profile/manage-history" element={<DownloadHistory />} />
                 <Route path="/profile/settings" element={<EditVoice />} />
                 <Route path="/profile/account" element={<LoginSignUp />} />
-                <Route path="/profile/policy" element={<PrivacyPolicy />} />
                 <Route path="/profile/referral" element={<ShareWithOthers />} />
-                <Route path="/profile/terms" element={<TermsAndCondition />} />
                 <Route path="*" element={<h1>Not Found</h1>} />
               </Routes>
               </div>

@@ -14,8 +14,8 @@ export default function CollapseSideBar() {
   }, [userInput, sendReq]);
 
   return (
-    <div>
-      <div className="bg-[rgb(246,239,228)] lg:pt-8 h-[100vh] overflow-y-auto scrollbar-hide">
+
+      <div className="bg-[rgb(246,239,228)] lg:pt-8 h-[100vh] overflow-scroll scrollbar-hide">
         <h2 class="mb-6 px-6">
           <div class="font-condensed text-h-m text-primary-700 text-2xl font-openSans">
             Good morning
@@ -118,6 +118,6 @@ export default function CollapseSideBar() {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }

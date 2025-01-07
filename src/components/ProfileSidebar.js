@@ -1,301 +1,90 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import BackButton from "./BackButton";
+import MenuItem from "./MenuItem";
+import { User, Settings, Share, MessageCircle, Shield, FileText } from 'lucide-react';
 
 export default function ProfileSidebar() {
+  const menuItems = [
+    {
+      icon: <User className="h-6 w-6" />,
+      text: 'Account',
+      to: '/profile/account'
+    },
+    {
+      icon: <Settings className="h-6 w-6" />,
+      text: 'Manage history',
+      to: '/profile/manage-history'
+    },
+    {
+      icon: <Settings className="h-6 w-6" />,
+      text: 'Voice settings',
+      to: '/profile/settings'
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6" />,
+      text: 'Give feedback',
+      to: 'https://form.typeform.com/to/AzrorQcf',
+      external: true
+    },
+    {
+      icon: <Share className="h-6 w-6" />,
+      text: 'Share Pi with others',
+      to: '/profile/referral'
+    },
+    {
+      icon: <MessageCircle className="h-6 w-6" />,
+      text: 'Join our Discord community',
+      to: 'https://discord.com/invite/VavJn8Ff5Y',
+      external: true
+    },
+    {
+      icon: <Shield className="h-6 w-6" />,
+      text: 'Privacy policy',
+      to: 'https://pi.ai/policy#privacy'
+    },
+    {
+      icon: <FileText className="h-6 w-6" />,
+      text: 'Terms of service',
+      to: 'https://pi.ai/policy#terms'
+    }
+  ];
   return (
     <div className="w-full mx-auto md:mx-0 max-w-md p-4 md:p-6 space-y-4 md:space-y-6">
-
-          <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-6">
-            <Link
-              aria-label="Go back"
-              class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap lg:hidden"
-              type="button"
-              to="/profile"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M11.1408 17.6558C10.9157 17.8808 10.6106 18.0072 10.2924 18.0072C9.97418 18.0072 9.66902 17.8808 9.44398 17.6558L4.64398 12.8558C4.41902 12.6308 4.29264 12.3256 4.29264 12.0074C4.29264 11.6892 4.41902 11.3841 4.64398 11.159L9.44398 6.35902C9.55468 6.24441 9.68709 6.15299 9.8335 6.0901C9.9799 6.02721 10.1374 5.99411 10.2967 5.99272C10.456 5.99134 10.6141 6.0217 10.7615 6.08204C10.909 6.14237 11.043 6.23148 11.1557 6.34415C11.2683 6.45682 11.3574 6.5908 11.4178 6.73828C11.4781 6.88575 11.5085 7.04377 11.5071 7.2031C11.5057 7.36244 11.4726 7.5199 11.4097 7.66631C11.3468 7.81271 11.2554 7.94512 11.1408 8.05582L8.38918 10.8074L17.4924 10.8074C17.8106 10.8074 18.1159 10.9339 18.3409 11.1589C18.566 11.3839 18.6924 11.6892 18.6924 12.0074C18.6924 12.3257 18.566 12.6309 18.3409 12.8559C18.1159 13.081 17.8106 13.2074 17.4924 13.2074L8.38918 13.2074L11.1408 15.959C11.3657 16.1841 11.4921 16.4892 11.4921 16.8074C11.4921 17.1256 11.3657 17.4308 11.1408 17.6558Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </Link>
-            <div class="grow text-primary-700">
-              <h1 class="font-condensed text-h-l-mobile hidden lg:block text-2xl text">
-                Profile
-              </h1>
-            </div>
-          </div>
-
-        <div class="flex flex-col space-y-1 overflow-y-auto px-4 pb-6">
-          <h1 class="pb-8 pl-2 font-condensed text-h-l-mobile lg:hidden text-center">
+      <div className="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-6">
+        <BackButton />
+        <div className="grow text-primary-700">
+          <h1 className="font-condensed text-h-l-mobile hidden lg:block text-2xl">
             Profile
           </h1>
-          <Link
-            class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-            aria-label="Go to Account page"
-            to="/profile/account"
-          >
-            <div class="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-              >
-                <path d="M12 12C10.9 12 9.95833 11.6083 9.175 10.825C8.39167 10.0417 8 9.1 8 8C8 6.9 8.39167 5.95833 9.175 5.175C9.95833 4.39167 10.9 4 12 4C13.1 4 14.0417 4.39167 14.825 5.175C15.6083 5.95833 16 6.9 16 8C16 9.1 15.6083 10.0417 14.825 10.825C14.0417 11.6083 13.1 12 12 12ZM18 20H6C5.45 20 4.97933 19.8043 4.588 19.413C4.196 19.021 4 18.55 4 18V17.2C4 16.6333 4.146 16.1123 4.438 15.637C4.72933 15.1623 5.11667 14.8 5.6 14.55C6.63333 14.0333 7.68333 13.6457 8.75 13.387C9.81667 13.129 10.9 13 12 13C13.1 13 14.1833 13.129 15.25 13.387C16.3167 13.6457 17.3667 14.0333 18.4 14.55C18.8833 14.8 19.2707 15.1623 19.562 15.637C19.854 16.1123 20 16.6333 20 17.2V18C20 18.55 19.8043 19.021 19.413 19.413C19.021 19.8043 18.55 20 18 20Z"></path>
-              </svg>
-              <p>Account</p>
-            </div>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-neutral-700"
-            >
-              <path
-                d="M16.5 12C16.5 11.6908 16.3712 11.3992 16.1501 11.1878L9.46246 4.80345L9.45589 4.7976C9.23334 4.59964 8.94344 4.49519 8.6479 4.50017C8.35233 4.50515 8.06602 4.61933 7.85042 4.82515C7.63411 5.03166 7.50578 5.31513 7.50019 5.61732C7.4946 5.91956 7.61243 6.20767 7.8215 6.42187L7.82767 6.42818L13.6641 12L7.82767 17.5718L7.8215 17.5781C7.61243 17.7923 7.4946 18.0804 7.50019 18.3827C7.50578 18.6849 7.63411 18.9683 7.85042 19.1748C8.06602 19.3807 8.35233 19.4949 8.6479 19.4998C8.94344 19.5048 9.23334 19.4004 9.45589 19.2024L9.46246 19.1966L16.1501 12.8122C16.3712 12.6008 16.5 12.3092 16.5 12Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </Link>
-          <Link
-            class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-            aria-label="Go to Manage history page"
-            to="/profile/manage-history"
-          >
-            <div class="flex items-center space-x-2">
-              <svg
-                width="20"
-                height="20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M10.0047 6C7.79315 6 6.00607 7.78771 6.00607 10C6.00607 12.2123 7.79315 14 10.0047 14C12.2162 14 14.0032 12.2123 14.0032 10C14.0032 7.78771 12.2162 6 10.0047 6ZM8.00536 10C8.00536 8.89228 8.89733 8 10.0047 8C11.112 8 12.0039 8.89228 12.0039 10C12.0039 11.1077 11.112 12 10.0047 12C8.89733 12 8.00536 11.1077 8.00536 10Z"
-                  fill="#0D3C26"
-                ></path>
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M11.5592 0C12.0601 0 12.4836 0.370822 12.55 0.867459L12.664 1.72L12.8539 3.06H12.8639C13.4537 3.31 13.9935 3.62 14.5433 4.03L15.8129 3.52L16.6183 3.1947C17.0796 3.00839 17.6077 3.18977 17.8573 3.62026L18.292 4.37L19.4201 6.32251C19.6679 6.75193 19.5637 7.29812 19.1753 7.60609L18.5019 8.14L17.4223 9C17.4723 9.36 17.4923 9.66 17.4923 9.99C17.4923 10.282 17.4657 10.5474 17.4292 10.9115C17.4269 10.9339 17.4246 10.9568 17.4223 10.98L18.4919 11.82L19.1828 12.3558C19.5774 12.662 19.6857 13.2125 19.4364 13.6453L19.0017 14.4L18.302 15.61L17.8673 16.3597C17.6177 16.7902 17.0896 16.9716 16.6283 16.7853L15.8229 16.46L14.5633 15.96C13.9935 16.38 13.4537 16.7 12.8739 16.94L12.674 18.29L12.5491 19.1447C12.4773 19.6358 12.0562 20 11.5599 20H8.43564C7.93693 20 7.51451 19.6323 7.44559 19.1382L7.32588 18.28L7.13595 16.94H7.12595C6.53616 16.69 5.99635 16.38 5.44655 15.97L4.177 16.48L3.37154 16.8053C2.91023 16.9916 2.38217 16.8102 2.13258 16.3797L1.69788 15.63L0.99813 14.42L0.563481 13.6653C0.314169 13.2325 0.422451 12.682 0.817113 12.3758L2.57757 11.01V10.94C2.57231 10.8786 2.56705 10.8196 2.56195 10.7625C2.53798 10.494 2.51759 10.2656 2.51759 10.01C2.51759 9.7 2.54758 9.39 2.58757 9.02L1.51795 8.18L0.827109 7.64416C0.432447 7.33805 0.324166 6.78753 0.573478 6.35466L1.00813 5.6L1.70788 4.39L2.14257 3.64026C2.39217 3.20977 2.92023 3.02839 3.38153 3.2147L4.187 3.54L5.44655 4.04C6.00635 3.62 6.55615 3.3 7.12595 3.06L7.32588 1.71L7.45079 0.855339C7.52257 0.364153 7.94369 0 8.43992 0H11.5592ZM10.6947 2H9.30518L9.10525 3.35L8.94531 4.48L7.88568 4.91C7.47583 5.08 7.06597 5.32 6.63613 5.64L5.73645 6.32L4.69682 5.9L3.42727 5.39L2.72752 6.6L3.80713 7.44L4.69682 8.14L4.55687 9.27C4.52688 9.57 4.50688 9.8 4.50688 10C4.50688 10.2 4.52688 10.43 4.55687 10.74L4.69682 11.87L3.80713 12.57L2.72752 13.41L3.42727 14.62L4.69682 14.11L5.75644 13.68L6.66612 14.38C7.06597 14.68 7.46583 14.91 7.89568 15.09L8.9553 15.52L9.30518 18H10.7047L10.9046 16.65L11.0646 15.52L12.1242 15.09C12.534 14.92 12.9439 14.68 13.3737 14.36L14.2734 13.68L15.313 14.1L16.5826 14.61L17.2823 13.4L16.2027 12.56L15.313 11.86L15.453 10.73C15.483 10.43 15.503 10.21 15.503 10C15.503 9.79 15.493 9.58 15.453 9.27L15.313 8.14L16.2027 7.44L17.2723 6.59L16.5726 5.38L15.303 5.89L14.2434 6.32L13.3337 5.62C12.9339 5.32 12.534 5.09 12.1042 4.91L11.0446 4.48L10.6947 2Z"
-                  fill="#0D3C26"
-                ></path>
-              </svg>
-              <p>Manage history</p>
-            </div>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-neutral-700"
-            >
-              <path
-                d="M16.5 12C16.5 11.6908 16.3712 11.3992 16.1501 11.1878L9.46246 4.80345L9.45589 4.7976C9.23334 4.59964 8.94344 4.49519 8.6479 4.50017C8.35233 4.50515 8.06602 4.61933 7.85042 4.82515C7.63411 5.03166 7.50578 5.31513 7.50019 5.61732C7.4946 5.91956 7.61243 6.20767 7.8215 6.42187L7.82767 6.42818L13.6641 12L7.82767 17.5718L7.8215 17.5781C7.61243 17.7923 7.4946 18.0804 7.50019 18.3827C7.50578 18.6849 7.63411 18.9683 7.85042 19.1748C8.06602 19.3807 8.35233 19.4949 8.6479 19.4998C8.94344 19.5048 9.23334 19.4004 9.45589 19.2024L9.46246 19.1966L16.1501 12.8122C16.3712 12.6008 16.5 12.3092 16.5 12Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </Link>
-          <Link
-            class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-            aria-label="Go to Voice settings page"
-            to="/profile/settings"
-          >
-            <div class="flex items-center space-x-2">
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 24 24"
-                class="h-6 w-6"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M5 7h2v10H5V7zm-4 3h2v4H1v-4zm8-8h2v18H9V2zm4 2h2v18h-2V4zm4 3h2v10h-2V7zm4 3h2v4h-2v-4z"></path>
-                </g>
-              </svg>
-              <p>Voice settings</p>
-            </div>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-neutral-700"
-            >
-              <path
-                d="M16.5 12C16.5 11.6908 16.3712 11.3992 16.1501 11.1878L9.46246 4.80345L9.45589 4.7976C9.23334 4.59964 8.94344 4.49519 8.6479 4.50017C8.35233 4.50515 8.06602 4.61933 7.85042 4.82515C7.63411 5.03166 7.50578 5.31513 7.50019 5.61732C7.4946 5.91956 7.61243 6.20767 7.8215 6.42187L7.82767 6.42818L13.6641 12L7.82767 17.5718L7.8215 17.5781C7.61243 17.7923 7.4946 18.0804 7.50019 18.3827C7.50578 18.6849 7.63411 18.9683 7.85042 19.1748C8.06602 19.3807 8.35233 19.4949 8.6479 19.4998C8.94344 19.5048 9.23334 19.4004 9.45589 19.2024L9.46246 19.1966L16.1501 12.8122C16.3712 12.6008 16.5 12.3092 16.5 12Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </Link>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-            aria-label="Go to Give feedback page"
-            href="https://form.typeform.com/to/AzrorQcf"
-          >
-            <div class="flex items-center space-x-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
-                ></path>
-              </svg>
-              <p>Give feedback</p>
-            </div>
-          </a>
-          <Link
-            class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-            aria-label="Go to Share Pi with others page"
-            to="/profile/referral"
-          >
-            <div class="flex items-center space-x-2">
-              <svg
-                width="24"
-                height="24"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="Iconography/24px">
-                  <path
-                    id="Vector"
-                    d="M13.7778 9.46667V6L20 12.0667L13.7778 18.1333V14.58C9.33333 14.58 6.22222 15.9667 4 19C4.88889 14.6667 7.55556 10.3333 13.7778 9.46667Z"
-                  ></path>
-                </g>
-              </svg>
-              <p>Share Pi with others</p>
-            </div>
-          </Link>
-          <div>
-            <div class="h-5"></div>
-            <div class="h-[1px] bg-neutral-400 mx-2"></div>
-            <div class="h-6"></div>
-          </div>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-            aria-label="Go to Join our Discord community page"
-            href="https://discord.com/invite/VavJn8Ff5Y"
-          >
-            <div class="flex items-center space-x-2">
-              <svg
-                width="24"
-                height="24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g id="Iconography/24px">
-                  <path
-                    id="Vector"
-                    d="M18.2377 6.27723C17.0708 5.74156 15.8392 5.35957 14.5739 5.14084C14.5624 5.13869 14.5505 5.14023 14.54 5.14522C14.5294 5.15022 14.5207 5.15842 14.515 5.16866C14.3568 5.45013 14.1815 5.81726 14.0588 6.10578C12.6753 5.89863 11.2988 5.89863 9.94372 6.10578C9.82102 5.81081 9.63937 5.45013 9.48044 5.16866C9.47456 5.15865 9.46579 5.15065 9.45529 5.1457C9.44479 5.14075 9.43304 5.13908 9.42157 5.14091C8.15616 5.35913 6.92452 5.74109 5.75767 6.27716C5.74769 6.28142 5.73928 6.28868 5.7336 6.29793C3.40005 9.78422 2.76075 13.1848 3.0744 16.5432C3.07529 16.5514 3.07782 16.5594 3.08184 16.5666C3.08586 16.5738 3.09129 16.5802 3.0978 16.5853C4.6374 17.716 6.12877 18.4024 7.59247 18.8573C7.60385 18.8607 7.616 18.8606 7.62729 18.8569C7.63857 18.8532 7.64846 18.8461 7.65562 18.8366C8.00182 18.3638 8.31045 17.8652 8.57512 17.341C8.57876 17.3338 8.58083 17.3259 8.58121 17.3179C8.58159 17.3099 8.58026 17.3018 8.57732 17.2943C8.57437 17.2869 8.56987 17.2801 8.56411 17.2744C8.55836 17.2688 8.55148 17.2645 8.54392 17.2617C8.05432 17.076 7.5882 16.8496 7.13977 16.5925C7.13159 16.5877 7.12473 16.5809 7.11977 16.5729C7.11482 16.5648 7.11193 16.5556 7.11137 16.5461C7.11081 16.5366 7.11258 16.5272 7.11654 16.5186C7.1205 16.51 7.12652 16.5024 7.13407 16.4967C7.22842 16.426 7.32285 16.3525 7.41292 16.2782C7.42093 16.2716 7.43062 16.2673 7.4409 16.2659C7.45118 16.2645 7.46165 16.266 7.47112 16.2703C10.417 17.6153 13.6061 17.6153 16.5172 16.2703C16.5266 16.2658 16.5372 16.264 16.5476 16.2653C16.5581 16.2666 16.5679 16.2708 16.576 16.2774C16.6662 16.3517 16.7605 16.426 16.8556 16.4967C16.8632 16.5024 16.8693 16.5098 16.8733 16.5184C16.8773 16.527 16.8791 16.5364 16.8786 16.5459C16.8781 16.5553 16.8753 16.5645 16.8705 16.5726C16.8656 16.5807 16.8588 16.5875 16.8507 16.5924C16.4021 16.8544 15.9322 17.0781 15.4459 17.261C15.4384 17.2638 15.4315 17.2683 15.4258 17.274C15.4201 17.2797 15.4157 17.2866 15.4128 17.2941C15.4099 17.3017 15.4086 17.3098 15.4091 17.3178C15.4095 17.3259 15.4117 17.3338 15.4154 17.341C15.6857 17.8645 15.9943 18.3631 16.3342 18.8359C16.3411 18.8456 16.3509 18.853 16.3623 18.8568C16.3736 18.8607 16.3859 18.8608 16.3973 18.8573C17.8681 18.4023 19.3594 17.7159 20.899 16.5853C20.9057 16.5804 20.9112 16.5743 20.9152 16.5671C20.9193 16.56 20.9218 16.5521 20.9225 16.5439C21.2978 12.6611 20.2939 9.28848 18.2611 6.29861C18.2561 6.28889 18.2478 6.28136 18.2377 6.27723ZM9.015 14.4983C8.12812 14.4983 7.39732 13.684 7.39732 12.684C7.39732 11.6841 8.11395 10.8698 9.01507 10.8698C9.92317 10.8698 10.6468 11.6912 10.6327 12.6841C10.6327 13.684 9.91604 14.4983 9.015 14.4983ZM14.9961 14.4983C14.1092 14.4983 13.3784 13.684 13.3784 12.684C13.3784 11.6841 14.095 10.8698 14.9961 10.8698C15.9042 10.8698 16.6279 11.6912 16.6137 12.6841C16.6137 13.684 15.9042 14.4983 14.9961 14.4983Z"
-                    fill="currentColor"
-                  ></path>
-                </g>
-              </svg>
-              <p>Join our Discord community</p>
-            </div>
-          </a>
-          <div>
-            <div>
-              <div class="h-5"></div>
-              <div class="h-[1px] bg-neutral-400 mx-2"></div>
-              <div class="h-6"></div>
-            </div>
-            <Link
-              class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-              aria-label="Go to Privacy policy page"
-              to="/profile/policy"
-            >
-              <div class="flex items-center space-x-2">
-                <svg
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  class="h-6 w-6"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  ></path>
-                </svg>
-                <p>Privacy policy</p>
-              </div>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-neutral-700"
-              >
-                <path
-                  d="M16.5 12C16.5 11.6908 16.3712 11.3992 16.1501 11.1878L9.46246 4.80345L9.45589 4.7976C9.23334 4.59964 8.94344 4.49519 8.6479 4.50017C8.35233 4.50515 8.06602 4.61933 7.85042 4.82515C7.63411 5.03166 7.50578 5.31513 7.50019 5.61732C7.4946 5.91956 7.61243 6.20767 7.8215 6.42187L7.82767 6.42818L13.6641 12L7.82767 17.5718L7.8215 17.5781C7.61243 17.7923 7.4946 18.0804 7.50019 18.3827C7.50578 18.6849 7.63411 18.9683 7.85042 19.1748C8.06602 19.3807 8.35233 19.4949 8.6479 19.4998C8.94344 19.5048 9.23334 19.4004 9.45589 19.2024L9.46246 19.1966L16.1501 12.8122C16.3712 12.6008 16.5 12.3092 16.5 12Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </Link>
-            <Link
-              class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
-              aria-label="Go to Terms of service page"
-              to="/profile/terms"
-            >
-              <div class="flex items-center space-x-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="h-6 w-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
-                  ></path>
-                </svg>
-                <p>Terms of service</p>
-              </div>
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-neutral-700"
-              >
-                <path
-                  d="M16.5 12C16.5 11.6908 16.3712 11.3992 16.1501 11.1878L9.46246 4.80345L9.45589 4.7976C9.23334 4.59964 8.94344 4.49519 8.6479 4.50017C8.35233 4.50515 8.06602 4.61933 7.85042 4.82515C7.63411 5.03166 7.50578 5.31513 7.50019 5.61732C7.4946 5.91956 7.61243 6.20767 7.8215 6.42187L7.82767 6.42818L13.6641 12L7.82767 17.5718L7.8215 17.5781C7.61243 17.7923 7.4946 18.0804 7.50019 18.3827C7.50578 18.6849 7.63411 18.9683 7.85042 19.1748C8.06602 19.3807 8.35233 19.4949 8.6479 19.4998C8.94344 19.5048 9.23334 19.4004 9.45589 19.2024L9.46246 19.1966L16.1501 12.8122C16.3712 12.6008 16.5 12.3092 16.5 12Z"
-                  fill="currentColor"
-                ></path>
-              </svg>
-            </Link>
-          </div>
         </div>
       </div>
 
+      <div className="flex flex-col space-y-1 overflow-y-auto px-4 pb-6">
+        <h1 className="pb-8 pl-2 font-condensed text-h-l-mobile lg:hidden text-center">
+          Profile
+        </h1>
+        
+        {/* Main menu items */}
+        {menuItems.slice(0,5).map((item, index) => (
+          <MenuItem key={index} {...item} />
+        ))}
+
+      <div className="h-5" />
+      <div className="h-[1px] bg-neutral-400 mx-2" />
+      <div className="h-6" />
+
+        {/* Community section */}
+        <MenuItem {...menuItems[5]} />
+
+        <div className="h-5" />
+        <div className="h-[1px] bg-neutral-400 mx-2" />
+        <div className="h-6" />
+
+        {/* Legal section */}
+        {menuItems.slice(6).map((item, index) => (
+          <MenuItem key={`legal-${index}`} {...item} />
+        ))}
+      </div>
+    </div>
   );
 }

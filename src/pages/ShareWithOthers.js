@@ -1,6 +1,15 @@
 import React from "react";
 
 export default function ShareWithOthers() {
+  function copyToClipboard() {
+    navigator.clipboard.writeText("https://pi.ai/referral")
+      .then(() => {
+        console.log('Text copied to clipboard');
+      })
+      .catch((error) => {
+        console.error('Error copying text: ', error);
+      });
+  }
   return (
     <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
       <div class="relative">
@@ -49,6 +58,7 @@ export default function ShareWithOthers() {
           <button
             class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-[#038247] hover:bg-[rgb(28,59,40)] active:bg-primary-700-tap mx-auto mt-14"
             type="button"
+            onClick={copyToClipboard}
           >
             Copy link
           </button>
