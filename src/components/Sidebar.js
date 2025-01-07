@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 function Sidebar({ sideOptions, setSideOptions }) {
     return (
-      <div>
-        <div className="hidden w-22 flex-col items-center gap-1 border-r border-neutral-300 p-3 pt-5 lg:flex bg-[rgb(249,243,235)] h-[100vh]">
+
+        <div className=" h-full flex md:flex-col  rounded-2xl text-[#6B6255] items-center py-4 bg-transparent md:h-screen xs:bg-[#fdf7f5]">
           <Link
             to="/discover"
             className="flex h-16 w-16 flex-col items-center justify-center rounded-xl text-neutral-900 hover:bg-neutral-50-hover hover:text-neutral-900-hover active:bg-neutral-50-tap active:text-neutral-900-tap gap-0.5"
@@ -54,7 +54,7 @@ function Sidebar({ sideOptions, setSideOptions }) {
             <div className="t-label">Profile</div>
           </Link>
         </div>
-      </div>
+
     );
   }
 

@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 
 export default function ProfileSidebar() {
   return (
-    <div className="bg-[rgb(249,243,235)] h-[100vh]">
-      <div class="w-full lg:w-[375px] lg:shrink-0 lg:border-r lg:border-neutral-300 flex flex-col">
-        <div class="bg-card-background">
+    <div className="w-full mx-auto md:mx-0 max-w-md p-4 md:p-6 space-y-4 md:space-y-6">
+
           <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-6">
             <Link
               aria-label="Go back"
@@ -28,14 +27,14 @@ export default function ProfileSidebar() {
               </svg>
             </Link>
             <div class="grow text-primary-700">
-              <h1 class="font-condensed text-h-l-mobile hidden lg:block text-2xl">
+              <h1 class="font-condensed text-h-l-mobile hidden lg:block text-2xl text">
                 Profile
               </h1>
             </div>
           </div>
-        </div>
+
         <div class="flex flex-col space-y-1 overflow-y-auto px-4 pb-6">
-          <h1 class="pb-8 pl-2 font-condensed text-h-l-mobile lg:hidden">
+          <h1 class="pb-8 pl-2 font-condensed text-h-l-mobile lg:hidden text-center">
             Profile
           </h1>
           <Link
@@ -197,7 +196,7 @@ export default function ProfileSidebar() {
             rel="noopener noreferrer"
             class="flex h-14 w-full items-center justify-between rounded-md px-2 py-4 font-sans text-body-m-mobile text-primary-700 hover:bg-neutral-50-hover active:bg-neutral-50-tap"
             aria-label="Go to Join our Discord community page"
-            href="/discord"
+            href="https://discord.com/invite/VavJn8Ff5Y"
           >
             <div class="flex items-center space-x-2">
               <svg
@@ -297,6 +296,6 @@ export default function ProfileSidebar() {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }

@@ -47,7 +47,7 @@ export default function ShareWithOthers() {
             Share a link to Pi with a friend...
           </p>
           <button
-            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-primary-700 hover:bg-primary-700-hover active:bg-primary-700-tap mx-auto mt-14"
+            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-[#038247] hover:bg-[rgb(28,59,40)] active:bg-primary-700-tap mx-auto mt-14"
             type="button"
           >
             Copy link

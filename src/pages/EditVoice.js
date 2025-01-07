@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/context";
 
 export default function EditVoice() {
-  const { voices, setSelectedVoice ,setIsMute} = useContext(GlobalContext);
+  const { voices, setSelectedVoice ,setIsMute,selectedVoice} = useContext(GlobalContext);
   return (
     <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
       <div class="bg-card-background">
@@ -42,7 +42,10 @@ export default function EditVoice() {
                 setIsMute(false)
               }}
               type="button"
-              class="flex items-center justify-between rounded-lg border px-3 py-5 font-sans text-body-m-mobile text-primary-700 border-neutral-500"
+              className={`${
+                voice === selectedVoice ? "bg-[rgb(220,183,245)]" : selectedVoice === false && index == 0 ? "bg-[rgb(220,183,245)]" : ""
+              } flex items-center justify-between rounded-lg border px-3 py-5 font-sans text-body-m-mobile text-primary-700 border-neutral-500`}
+              
             >
               Pi {index + 1} {[0, 1, 2].includes(index) ? "✨" : ""}
             </button>

@@ -22,7 +22,7 @@ const ContextProvider = ({ children }) => {
   const [aiRes, setAiRes] = useState("");
   const [isMute, setIsMute] = useState(true);
   const [sendReq, setSendReq] = useState(false)
-
+  const [isLoading,setIsLoading] = useState(false);
   function convertFormattedText(inputText) {
     let outputText = inputText
         .replace(/^\*\*(.*?)\*\*\n/gm, '<h2>$1</h2>') 
@@ -70,6 +70,7 @@ function convertToNormalText(htmlText) {
     return text;
 }
   const aiResponse = () => {
+    setIsLoading(true)
     const apiKey = "AIzaSyBcYndL_3k3KkXXHRPZIo5kQz-oNeeK0OQ";
     const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -96,6 +97,7 @@ function convertToNormalText(htmlText) {
       const result = await chatSession.sendMessage(userInput);
       const formattedText = convertFormattedText(result.response.text())
       
+      setIsLoading(false)
       setAiRes(formattedText);
       setSendReq(false)
       setChatHistory((prev) => {
@@ -182,7 +184,9 @@ function convertToNormalText(htmlText) {
     stopSpeaking,
     readMessage,
     sendReq, 
-    setSendReq
+    setSendReq,
+    isLoading,
+    setIsLoading
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>

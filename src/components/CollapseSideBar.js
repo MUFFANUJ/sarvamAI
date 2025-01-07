@@ -15,7 +15,7 @@ export default function CollapseSideBar() {
 
   return (
     <div>
-      <div class="no-scrollbar bg-[rgb(246,239,228)] lg:pt-8 w-[27vw] h-[100vh] overflow-y-scroll">
+      <div className="bg-[rgb(246,239,228)] lg:pt-8 h-[100vh] overflow-y-auto scrollbar-hide">
         <h2 class="mb-6 px-6">
           <div class="font-condensed text-h-m text-primary-700 text-2xl font-openSans">
             Good morning
@@ -23,7 +23,7 @@ export default function CollapseSideBar() {
         </h2>
         <h2 class="mb-6 px-6">
           <div
-            class="mb-6 flex items-center rounded-20 border border-white bg-[rgb(249,243,235)] p-4 shadow-card transition-all rounded-10 duration-150 hover:scale-95 hover:bg-neutral-50-hover"
+            class="mb-6 flex items-center rounded-20 border border-white bg-[rgb(249,243,235)] p-4 shadow-card transition-all rounded-10 duration-150 hover:scale-95 hover:bg-neutral-50-hover "
             style={{
               borderRadius: "15px",
             }}
