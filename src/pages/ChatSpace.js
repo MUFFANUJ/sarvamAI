@@ -39,6 +39,7 @@ export default function ChatSpace() {
       window.speechSynthesis.cancel();
     };
   }, []);
+  
 
   return (
     <div className="flex flex-col h-screen bg-[rgb(249,243,235)]">
