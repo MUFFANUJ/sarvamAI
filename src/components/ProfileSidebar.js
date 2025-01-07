@@ -2,6 +2,7 @@ import React from "react";
 import BackButton from "./BackButton";
 import MenuItem from "./MenuItem";
 import { User, Settings, Share, MessageCircle, Shield, FileText,History } from 'lucide-react';
+import { SiDiscord } from "react-icons/si";
 
 export default function ProfileSidebar() {
   const menuItems = [
@@ -32,7 +33,7 @@ export default function ProfileSidebar() {
       to: '/profile/referral'
     },
     {
-      icon: <MessageCircle className="h-6 w-6" />,
+      icon: <SiDiscord className="h-6 w-6" />,
       text: 'Join our Discord community',
       to: 'https://discord.com/invite/VavJn8Ff5Y',
       external: true
@@ -59,7 +60,7 @@ export default function ProfileSidebar() {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-1 overflow-y-auto px-4 pb-6">
+      <div className="flex flex-col space-y-1 overflow-y-auto  pb-6">
         <h1 className="pb-8 pl-2 font-condensed text-h-l-mobile lg:hidden text-center">
           Profile
         </h1>

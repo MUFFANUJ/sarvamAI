@@ -43,7 +43,7 @@ export default function EditVoice() {
               }}
               type="button"
               className={`${
-                voice === selectedVoice ? "bg-[rgb(220,183,245)]" : selectedVoice === false && index == 0 ? "bg-[rgb(220,183,245)]" : ""
+                voice === selectedVoice ? "bg-[rgb(220,183,245)]" : selectedVoice === false && index === 0 ? "bg-[rgb(220,183,245)]" : ""
               } flex items-center justify-between rounded-lg border px-3 py-5 font-sans text-body-m-mobile text-primary-700 border-neutral-500`}
               
             >

@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/context";
-import { ChevronDown, Volume2, VolumeX } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { RiArrowDownSLine } from "react-icons/ri";
 export default function ChatSpace() {
   const {
     chatHistory,
@@ -16,7 +17,6 @@ export default function ChatSpace() {
     isMute,
     setIsMute,
     stopSpeaking,
-    readMessage,
     setSendReq,
     isLoading,
   } = useContext(GlobalContext);
@@ -48,8 +48,6 @@ export default function ChatSpace() {
       window.speechSynthesis.cancel();
     };
   }, []);
-
-  // const [isMute, setIsMute] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -58,6 +56,17 @@ export default function ChatSpace() {
       setIsDropdownOpen(false);
     }
   };
+  const handleVoiceSelection = (voice) => {
+    setSelectedVoice(voice);
+    setIsMute(false);
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (selectedVoice) {
+      readLatestMessage();
+    }
+  }, [selectedVoice]);
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -89,11 +98,12 @@ export default function ChatSpace() {
                     <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM17.78 9.22a.75.75 0 10-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 001.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L20.56 12l1.72-1.72a.75.75 0 00-1.06-1.06l-1.72 1.72-1.72-1.72z" />
                   </svg>
                 ) : (
-                  <div className="flex items-center"
-                  onClick={() => {
-                    stopSpeaking();
-                    setIsMute(prev => !prev);
-                  }}
+                  <div
+                    className="flex items-center"
+                    onClick={() => {
+                      stopSpeaking();
+                      setIsMute((prev) => !prev);
+                    }}
                   >
                     <svg
                       stroke-width="0"
@@ -104,7 +114,7 @@ export default function ChatSpace() {
                       xmlns="http://www.w3.org/2000/svg"
                       onClick={() => {
                         stopSpeaking();
-                        setIsMute(prev=> !prev);
+                        setIsMute((prev) => !prev);
                       }}
                     >
                       <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z"></path>
@@ -131,9 +141,7 @@ export default function ChatSpace() {
                         {voices.map((voice, index) => (
                           <button
                             onClick={() => {
-                              setSelectedVoice(voice);
-                              setIsMute((prev) => !prev);
-                              setIsDropdownOpen(prev => !prev)
+                              handleVoiceSelection(voice)
                             }}
                             type="button"
                             className={`${
@@ -161,11 +169,8 @@ export default function ChatSpace() {
                           class="group z-10 flex items-center text-neutral-800"
                           type="button"
                         >
-                          <div
-                          >
+                          <div>
                             <svg
-                              stroke="currentColor"
-                              fill="currentColor"
                               stroke-width="0"
                               viewBox="0 0 24 24"
                               aria-hidden="true"
@@ -173,7 +178,6 @@ export default function ChatSpace() {
                               height="1em"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
-                              
                             >
                               <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z"></path>
                               <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z"></path>
@@ -189,25 +193,9 @@ export default function ChatSpace() {
                             style={{
                               transform: "rotate(-180deg) translateZ(0px)",
                             }}
-                            onClick={()=> setIsDropdownOpen(prev=> !prev)}
+                            onClick={() => setIsDropdownOpen((prev) => !prev)}
                           >
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              stroke-width="0"
-                              viewBox="0 0 20 20"
-                              aria-hidden="true"
-                              class="h-5 w-5 lg:h-6 lg:w-6"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
+                            <RiArrowDownSLine  size={28}/>
                           </div>
                         </button>
                       </div>

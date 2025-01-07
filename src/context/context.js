@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getAuth, signInWithPopup ,GoogleAuthProvider} from "firebase/auth";
+import { getAuth, signInWithPopup ,GoogleAuthProvider,signOut} from "firebase/auth";
 import {app} from "../firebase/firebase.js"
-import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -27,9 +26,10 @@ const ContextProvider = ({ children }) => {
   const [sendReq, setSendReq] = useState(false)
   const [isLoading,setIsLoading] = useState(false);
   const [userName,setUserName] = useState(localStorage.getItem('name'))
+
+  const [logged,setLogged] = useState(false)
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  // const navigate = useNavigate();
 
   const singInWithGoogle = () => {
     signInWithPopup(auth, provider)
@@ -37,15 +37,28 @@ const ContextProvider = ({ children }) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
+    setUserName(user.displayName)
+    localStorage.setItem("name",user.displayName)
     localStorage.setItem("loggedIn",true)
-    // navigate("/profile");
+    setLogged(true)
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     const email = error.customData.email;
     const credential = GoogleAuthProvider.credentialFromError(error);
   })};
-
+  
+  const logOut = () => {
+    signOut(auth).then(() => {
+        
+    }).catch((error) => {
+      console.error(error.message);
+    });
+    setUserName("")
+    setLogged(false)
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("name")
+  };
   function convertFormattedText(inputText) {
     let outputText = inputText
         .replace(/^\*\*(.*?)\*\*\n/gm, '<h2>$1</h2>') 
@@ -128,22 +141,13 @@ function convertToNormalText(htmlText) {
           ...prev,
           { msg: formattedText, bot: true },
         ];
-        if (selectedVoice && !isMute) {
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(
             result.response.text()
           );
           utterance.voice = selectedVoice;
           window.speechSynthesis.speak(utterance);
-        }else{
-            if(!isMute){
-            window.speechSynthesis.cancel();
-          const utterance = new SpeechSynthesisUtterance(
-            formattedText
-          );
-          utterance.voice = voices[0];
-          window.speechSynthesis.speak(utterance);
-        }}
+        
         return newHistory;
       });
       
@@ -166,13 +170,6 @@ function convertToNormalText(htmlText) {
     window.speechSynthesis.speak(utterance);
   };
 
-  const readMessage = () => {
-    const utterance = new SpeechSynthesisUtterance(
-      chatHistory[chatHistory.length - 1].msg
-    );
-    utterance.voice = voices[0];
-    window.speechSynthesis.speak(utterance);
-  };
 
   const handleVoiceChange = (event) => {
     const voiceURI = event.target.value;
@@ -205,13 +202,15 @@ function convertToNormalText(htmlText) {
     isMute,
     setIsMute,
     stopSpeaking,
-    readMessage,
     sendReq, 
     setSendReq,
     isLoading,
     setIsLoading,
     userName,
-    singInWithGoogle
+    singInWithGoogle,
+    setLogged,
+    logged,
+    logOut
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>
