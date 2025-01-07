@@ -1,5 +1,8 @@
 import React, { createContext, useContext, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { getAuth, signInWithPopup ,GoogleAuthProvider} from "firebase/auth";
+import {app} from "../firebase/firebase.js"
+import { useNavigate } from "react-router-dom";
 export const GlobalContext = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -23,6 +26,26 @@ const ContextProvider = ({ children }) => {
   const [isMute, setIsMute] = useState(true);
   const [sendReq, setSendReq] = useState(false)
   const [isLoading,setIsLoading] = useState(false);
+  const [userName,setUserName] = useState(localStorage.getItem('name'))
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  // const navigate = useNavigate();
+
+  const singInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+  .then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    localStorage.setItem("loggedIn",true)
+    // navigate("/profile");
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    const credential = GoogleAuthProvider.credentialFromError(error);
+  })};
+
   function convertFormattedText(inputText) {
     let outputText = inputText
         .replace(/^\*\*(.*?)\*\*\n/gm, '<h2>$1</h2>') 
@@ -186,7 +209,9 @@ function convertToNormalText(htmlText) {
     sendReq, 
     setSendReq,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    userName,
+    singInWithGoogle
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>

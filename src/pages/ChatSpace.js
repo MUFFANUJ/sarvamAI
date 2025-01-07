@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/context";
-
+import { ChevronDown, Volume2, VolumeX } from "lucide-react";
 export default function ChatSpace() {
   const {
     chatHistory,
@@ -48,7 +48,27 @@ export default function ChatSpace() {
       window.speechSynthesis.cancel();
     };
   }, []);
-  const [isDropdown, setIsDropdown] = useState(true);
+
+  // const [isMute, setIsMute] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleOutsideClick = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <div className="flex flex-col h-screen bg-[rgb(249,243,235)]">
@@ -57,10 +77,7 @@ export default function ChatSpace() {
           <div className="flex items-center justify-end px-4 sm:px-6 lg:px-8 py-4 ">
             <div className="flex items-center space-x-2">
               <button
-                onClick={() => {
-                  setIsMute((prev) => !prev);
-                  readMessage();
-                }}
+                onClick={() => setIsMute((prev) => !prev)}
                 className="p-2 rounded-full transition-colors"
               >
                 {isMute ? (
@@ -71,29 +88,44 @@ export default function ChatSpace() {
                   >
                     <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM17.78 9.22a.75.75 0 10-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 001.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L20.56 12l1.72-1.72a.75.75 0 00-1.06-1.06l-1.72 1.72-1.72-1.72z" />
                   </svg>
-                ) : !isDropdown ? (
-                  <>
+                ) : (
+                  <div className="flex items-center"
+                  onClick={() => {
+                    stopSpeaking();
+                    setIsMute(prev => !prev);
+                  }}
+                  >
                     <svg
-                      stroke="currentColor"
-                      fill="currentColor"
                       stroke-width="0"
                       viewBox="0 0 24 24"
-                      aria-hidden="true"
                       class="h-5 w-5 text-primary-700 lg:h-6 lg:w-6"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
                       onClick={() => {
                         stopSpeaking();
-                        setIsMute((prev) => !prev);
+                        setIsMute(prev=> !prev);
                       }}
                     >
                       <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z"></path>
                       <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z"></path>
                     </svg>
-                  </>
-                ) : (
-                  <div className="absolute end-8 z-10 w-44">
+                    <button
+                      onClick={() => setIsDropdownOpen((prev) => !prev)}
+                      className="p-2 ml-2 rounded-full transition-colors"
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </div>
+                )}
+              </button>
+
+              {isDropdownOpen && (
+                <div>
+                  <div
+                    className="absolute end-6 top-6 z-10 w-44"
+                    ref={dropdownRef}
+                  >
                     <div class="relative flex flex-col-reverse bg-[rgb(242,233,219)]">
                       <div class="t-action-m -mt-5 flex flex-col rounded-b-xl  p-2 pt-5">
                         {voices.map((voice, index) => (
@@ -101,6 +133,7 @@ export default function ChatSpace() {
                             onClick={() => {
                               setSelectedVoice(voice);
                               setIsMute((prev) => !prev);
+                              setIsDropdownOpen(prev => !prev)
                             }}
                             type="button"
                             className={`${
@@ -128,7 +161,8 @@ export default function ChatSpace() {
                           class="group z-10 flex items-center text-neutral-800"
                           type="button"
                         >
-                          <div>
+                          <div
+                          >
                             <svg
                               stroke="currentColor"
                               fill="currentColor"
@@ -139,10 +173,7 @@ export default function ChatSpace() {
                               height="1em"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
-                              onClick={() => {
-                                stopSpeaking();
-                                setIsMute((prev) => !prev);
-                              }}
+                              
                             >
                               <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM18.584 5.106a.75.75 0 011.06 0c3.808 3.807 3.808 9.98 0 13.788a.75.75 0 11-1.06-1.06 8.25 8.25 0 000-11.668.75.75 0 010-1.06z"></path>
                               <path d="M15.932 7.757a.75.75 0 011.061 0 6 6 0 010 8.486.75.75 0 01-1.06-1.061 4.5 4.5 0 000-6.364.75.75 0 010-1.06z"></path>
@@ -158,6 +189,7 @@ export default function ChatSpace() {
                             style={{
                               transform: "rotate(-180deg) translateZ(0px)",
                             }}
+                            onClick={()=> setIsDropdownOpen(prev=> !prev)}
                           >
                             <svg
                               stroke="currentColor"
@@ -181,8 +213,8 @@ export default function ChatSpace() {
                       </div>
                     </div>
                   </div>
-                )}
-              </button>
+                </div>
+              )}
             </div>
           </div>
 

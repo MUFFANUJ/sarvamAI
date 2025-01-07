@@ -1,7 +1,7 @@
 import React from "react";
 import BackButton from "./BackButton";
 import MenuItem from "./MenuItem";
-import { User, Settings, Share, MessageCircle, Shield, FileText } from 'lucide-react';
+import { User, Settings, Share, MessageCircle, Shield, FileText,History } from 'lucide-react';
 
 export default function ProfileSidebar() {
   const menuItems = [
@@ -11,7 +11,7 @@ export default function ProfileSidebar() {
       to: '/profile/account'
     },
     {
-      icon: <Settings className="h-6 w-6" />,
+      icon: <History className="h-6 w-6" />,
       text: 'Manage history',
       to: '/profile/manage-history'
     },
@@ -64,7 +64,6 @@ export default function ProfileSidebar() {
           Profile
         </h1>
         
-        {/* Main menu items */}
         {menuItems.slice(0,5).map((item, index) => (
           <MenuItem key={index} {...item} />
         ))}
@@ -73,14 +72,12 @@ export default function ProfileSidebar() {
       <div className="h-[1px] bg-neutral-400 mx-2" />
       <div className="h-6" />
 
-        {/* Community section */}
         <MenuItem {...menuItems[5]} />
 
         <div className="h-5" />
         <div className="h-[1px] bg-neutral-400 mx-2" />
         <div className="h-6" />
 
-        {/* Legal section */}
         {menuItems.slice(6).map((item, index) => (
           <MenuItem key={`legal-${index}`} {...item} />
         ))}

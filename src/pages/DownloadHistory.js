@@ -1,7 +1,20 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/context";
 
 export default function DownloadHistory() {
+  const { chatHistory } = useContext(GlobalContext);
+  function downloadChatHistory() {
+    const jsonString = JSON.stringify(chatHistory, null, 2);
+  
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'chat_history.json'; 
+    a.click();
+    URL.revokeObjectURL(url);
+  }
   return (
     <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
       <div class="bg-card-background">
@@ -87,6 +100,7 @@ export default function DownloadHistory() {
         <button
           class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-neutral-50 bg-green-700 hover:bg-primary-700-hover active:bg-primary-700-tap mx-auto mt-5"
           type="button"
+          onClick={downloadChatHistory}
         >
           Download your Pi history
         </button>
