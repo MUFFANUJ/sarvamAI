@@ -51,19 +51,19 @@ export default {
         'action-m': ['1rem', '1.25rem'],
         'action-l': ['1.125rem', '1.5rem'],
       },
-      borderRadius: {
-        '10': '10px',
-        '20': '20px',
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
       },
-      spacing: {
-        '18': '4.5rem',
-        '22': '5.5rem',
-      },
-      boxShadow: {
-        'card': '0 2px 4px rgba(0, 0, 0, 0.1)',
-      },
-      transitionDuration: {
-        '150': '150ms',
+      animation: {
+        fadeIn: 'fadeIn 1.8s ease-out forwards',
+        fadeOut: 'fadeOut 1.8s ease-out forwards',
       },
     },
   },

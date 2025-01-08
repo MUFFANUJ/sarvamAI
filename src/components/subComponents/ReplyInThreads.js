@@ -52,7 +52,7 @@ export default function ReplyInThreads({
   }
   return (
     <div className="pl-4 flex h-8">
-      <div className="flex gap-2 items-center rounded-md bg-primary-100 border border-primary-200 p-1 rounded fade-in">
+      <div className="flex gap-2 items-center rounded-md bg-primary-100 border border-primary-200 p-1 rounded animate-fadeIn">
         <button
           className="border-r border-primary-200 h-full text-xs flex items-center gap-0.5 p-1"
           onClick={() => {
