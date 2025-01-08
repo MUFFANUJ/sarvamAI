@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {!onBoarding ? (
+        {onBoarding ? (
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/onboarding" element={<Onboarding />} />
