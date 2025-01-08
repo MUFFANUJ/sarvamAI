@@ -50,7 +50,7 @@ export default function ProfileSidebar() {
     }
   ];
   return (
-    <div className="w-full mx-auto md:mx-0 max-w-md p-4 md:p-6 space-y-4 md:space-y-6 bg-primary-100">
+    <div className="w-full mx-auto md:mx-0 max-w-md p-4 md:p-4 space-y-4 md:space-y-6 bg-primary-100">
       <div className="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-6">
         <BackButton />
         <div className="grow text-primary-700">

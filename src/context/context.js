@@ -1,7 +1,13 @@
 import React, { createContext, useContext, useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { getAuth, signInWithPopup ,GoogleAuthProvider,signOut} from "firebase/auth";
-import {app} from "../firebase/firebase.js"
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
+import { app } from "../firebase/firebase.js";
+import gridOrderObjects from "../store/data.js";
 export const GlobalContext = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -19,63 +25,73 @@ const ContextProvider = ({ children }) => {
     },
   ]);
   const [userInput, setUserInput] = useState("");
+  const [onBoarding, setOnBoarding] = useState(true);
   const [voices, setVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState(false);
   const [aiRes, setAiRes] = useState("");
   const [isMute, setIsMute] = useState(true);
-  const [sendReq, setSendReq] = useState(false)
-  const [isLoading,setIsLoading] = useState(false);
-  const [userName,setUserName] = useState(localStorage.getItem('name'))
-
-  const [logged,setLogged] = useState(false)
+  const [sendReq, setSendReq] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [userName, setUserName] = useState(localStorage.getItem("name"));
+  const [logged, setLogged] = useState(false);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
   const singInWithGoogle = () => {
     signInWithPopup(auth, provider)
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    setUserName(user.displayName)
-    localStorage.setItem("name",user.displayName)
-    localStorage.setItem("loggedIn",true)
-    setLogged(true)
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.customData.email;
-    const credential = GoogleAuthProvider.credentialFromError(error);
-  })};
-  
-  const logOut = () => {
-    signOut(auth).then(() => {
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        setUserName(user.displayName);
+        localStorage.setItem("name", user.displayName);
+        localStorage.setItem("loggedIn", true);
+        setLogged(true);
+        if (onBoarding) {
+          setOnBoarding(false)
+          localStorage.setItem("onBoarding",false)
+          window.location.href = "/";
+        }
         
-    }).catch((error) => {
-      console.error(error.message);
-    });
-    setUserName("")
-    setLogged(false)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+      });
+
+      
+  };
+
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {
+        console.error(error.message);
+      });
+    setUserName("");
+    setLogged(false);
     localStorage.removeItem("loggedIn");
-    localStorage.removeItem("name")
+    localStorage.removeItem("name");
   };
 
   function simplifyText(inputText) {
-    let simplifiedText = inputText.replace(/[*?\/\\&#]/g, '');
-  
+    let simplifiedText = inputText.replace(/[*?\/\\&#]/g, "");
+
     simplifiedText = simplifiedText
-      .replace(/-\s+\*\*/g, '\n- ')  
-      .replace(/\*\*/g, '')          
-      .replace(/(##|\*\*|\#)/g, '')  
-      .replace(/\n\s*\n/g, '\n')     
-      .replace(/(\d+\.)/g, '\n$1')   
-      .replace(/([A-Z][a-z]+):/g, '$1'); 
-  
+      .replace(/-\s+\*\*/g, "\n- ")
+      .replace(/\*\*/g, "")
+      .replace(/(##|\*\*|\#)/g, "")
+      .replace(/\n\s*\n/g, "\n")
+      .replace(/(\d+\.)/g, "\n$1")
+      .replace(/([A-Z][a-z]+):/g, "$1");
+
     return simplifiedText.trim();
   }
 
   const aiResponse = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
     const genAI = new GoogleGenerativeAI(apiKey);
 
@@ -96,21 +112,37 @@ const ContextProvider = ({ children }) => {
         generationConfig,
         history: [],
       });
-
+      const element = gridOrderObjects.filter(
+        (item) => item.text === userInput
+      );
       setChatHistory((prev) => [...prev, { msg: userInput, bot: false }]);
       setUserInput("");
       const result = await chatSession.sendMessage(userInput);
-      const formattedText = simplifyText(result.response.text())
-      
-      setIsLoading(false)
+      const formattedText = simplifyText(result.response.text());
+
+      setIsLoading(false);
       setAiRes(formattedText);
-      setSendReq(false)
+      setSendReq(false);
       setChatHistory((prev) => {
-        const newHistory = [
-          ...prev,
-          { msg: formattedText, bot: true },
-        ];
-        if(selectedVoice && !isMute){
+        let newHistory =
+          element.length > 0
+            ? [
+                ...prev,
+                {
+                  msg: formattedText,
+                  bot: true,
+                  image: element[0].imageSrc,
+                  title: element[0].text,
+                },
+              ]
+            : [
+                ...prev,
+                {
+                  msg: formattedText,
+                  bot: true,
+                },
+              ];
+        if (!isMute) {
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(
             result.response.text()
@@ -118,10 +150,9 @@ const ContextProvider = ({ children }) => {
           utterance.voice = selectedVoice;
           window.speechSynthesis.speak(utterance);
         }
-        
+
         return newHistory;
       });
-      
     }
     run();
   };
@@ -136,11 +167,10 @@ const ContextProvider = ({ children }) => {
     const utterance = new SpeechSynthesisUtterance(
       chatHistory[chatHistory.length - 1].msg
     );
-    
+
     utterance.voice = selectedVoice;
     window.speechSynthesis.speak(utterance);
   };
-
 
   const handleVoiceChange = (event) => {
     const voiceURI = event.target.value;
@@ -156,6 +186,7 @@ const ContextProvider = ({ children }) => {
       window.speechSynthesis.speak(utterance);
     }
   };
+
   const data = {
     chatHistory,
     setChatHistory,
@@ -173,7 +204,7 @@ const ContextProvider = ({ children }) => {
     isMute,
     setIsMute,
     stopSpeaking,
-    sendReq, 
+    sendReq,
     setSendReq,
     isLoading,
     setIsLoading,
@@ -181,7 +212,9 @@ const ContextProvider = ({ children }) => {
     singInWithGoogle,
     setLogged,
     logged,
-    logOut
+    logOut,
+    onBoarding,
+    setOnBoarding,
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>

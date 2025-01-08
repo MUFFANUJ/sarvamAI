@@ -8,7 +8,7 @@ import Sidebar from "./components/Sidebar";
 import CollapseSideBar from "./components/CollapseSideBar";
 import ProfileSidebar from "./components/ProfileSidebar";
 import Threads from "./components/Threads";
-import Welcome from "./components/Welcome";
+import Welcome from "./components/Start";
 import Onboarding from "./components/Onboarding";
 import NameInput from "./components/NameInput";
 import ChatSpace from "./pages/ChatSpace";
@@ -20,13 +20,16 @@ import LoggedIn from "./components/LoggedIn";
 import { GlobalContext } from "./context/context";
 
 function App() {
-  const { logged,setLogged } = useContext(GlobalContext);
+  const { logged,setLogged,onBoarding,setOnBoarding } = useContext(GlobalContext);
   const [sideOptions, setSideOptions] = useState(1);
-  const [onBoarding, setOnBoarding] = useState(true);
   useEffect(()=>{
     const loggedInStatus = localStorage.getItem("loggedIn");
-    setLogged(loggedInStatus === "true");
-    setOnBoarding(localStorage.getItem("onBoarding"))
+    if(loggedInStatus){
+      setLogged(JSON.parse(loggedInStatus));
+    }
+    if(localStorage.getItem("onBoarding")){
+      setOnBoarding(JSON.parse(localStorage.getItem("onBoarding")))
+    }
   },[])
 
   return (
@@ -36,6 +39,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/onboarding/account" element={<LoginSignUp />} />
+            <Route path="/onboarding/voices" element={<EditVoice />} />
+            <Route path="*" element={<h1>Onboarding is Pending</h1>} />
             <Route
               path="/persononboarding"
               element={<NameInput setOnBoarding={setOnBoarding} />}

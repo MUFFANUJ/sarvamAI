@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/context";
 import  shareWithOthers  from '../assets/share.svg';
 import { FaArrowLeft } from "react-icons/fa";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function DownloadHistory() {
   const { chatHistory } = useContext(GlobalContext);
@@ -59,10 +60,34 @@ export default function DownloadHistory() {
         <button
           class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-neutral-50 bg-success-500 hover:bg-success-400 mx-auto mt-5"
           type="button"
-          onClick={downloadChatHistory}
+          onClick={()=> {
+            downloadChatHistory()
+            toast.success('🦄 Chat Data Downloaded successfully!', {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+              });
+          }}
         >
           Download your Pi history
         </button>
+        <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
       </div>
     </div>
   );

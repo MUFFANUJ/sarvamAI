@@ -11,9 +11,9 @@ const NameInput = ({setOnBoarding}) => {
         localStorage.setItem('name', inputName);
         if (!inputName.trim() || isSending) return;
         setIsSending(true);
-        setOnBoarding(false)
+        // setOnBoarding(false)
         localStorage.setItem("onBoarding",false)
-        navigate('/');
+        navigate('/onboarding/voices');
     };
 
     return (
@@ -24,7 +24,7 @@ const NameInput = ({setOnBoarding}) => {
                 </div>
             </header>
 
-            <div className='px-6 pt-22 flex flex-col justify-start items-start mt-16 text-[#0D3C26] font-semibold tracking-tighter'>
+            <div className='px-6 flex flex-col justify-start items-start mt-16 text-[#0D3C26] font-semibold tracking-tighter'>
                 <div className={'flex flex-col justify-center items-start mt-10 w-full'}>
                     <div className='flex w-full items-end'>
                         <p className='text-3xl'>Hello! I'm Pi.</p>
@@ -45,7 +45,7 @@ const NameInput = ({setOnBoarding}) => {
                             className="flex-grow px-5 font-normal py-3 text-[24px] h-auto text-black placeholder-[#c9b597] focus:outline-none placeholder:tracking-wide placeholder:text-[24px]"
                             value={inputName}
                             onChange={(e) => setInputName(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
+                            onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
                         />
                         <button
                             className={`flex items-center justify-center w-10 h-10 rounded-full

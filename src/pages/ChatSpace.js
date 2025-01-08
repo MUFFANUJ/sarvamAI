@@ -14,7 +14,6 @@ export default function ChatSpace() {
     userInput,
     aiResponse,
     voices,
-    setVoices,
     selectedVoice,
     isMute,
     setIsMute,
@@ -23,35 +22,10 @@ export default function ChatSpace() {
     isLoading,
   } = useContext(GlobalContext);
 
-  useEffect(() => {
-    const getVoices = () => {
-      const allVoices = window.speechSynthesis.getVoices();
-      const availableVoices = [
-        allVoices[0],
-        allVoices[18],
-        allVoices[22],
-        allVoices[33],
-        allVoices[46],
-        allVoices[90],
-        allVoices[93],
-        allVoices[100],
-      ];
-      if (availableVoices.length > 0) {
-        setVoices(availableVoices);
-        if (selectedVoice) return;
-        readLatestMessage();
-      }
-    };
-
-    window.speechSynthesis.onvoiceschanged = getVoices;
-    getVoices();
-
-    return () => {
-      window.speechSynthesis.cancel();
-    };
-  }, []);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const chatEndRef = useRef(null);
+  
 
   const handleOutsideClick = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -65,10 +39,17 @@ export default function ChatSpace() {
   };
 
   useEffect(() => {
-    if (selectedVoice) {
+    stopSpeaking()
+    if (!isMute) {
       readLatestMessage();
     }
-  }, [selectedVoice]);
+  }, [selectedVoice,isMute]);
+
+  
+
+  const scrollToBottom = () => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -92,7 +73,10 @@ export default function ChatSpace() {
                 className="p-2 rounded-full transition-colors"
               >
                 {isMute ? (
-                  <FaVolumeMute size={25}/>
+                  <div className="bg-primary-200 rounded-full p-2">
+                    <FaVolumeMute size={25} color="#696255"/>
+
+                  </div>
                 ) : (
                   <div
                     className="flex items-center"
@@ -218,13 +202,27 @@ export default function ChatSpace() {
                         : "bg-primary-800 text-gray-800"
                     }`}
                   >
+                    {
+                      chat.image ?
+                       (
+                        <div>
+                          <img src={chat.image} className="w-3/4 rounded-xl" />
+                          <p className="relative top-[-35px] w-3/4 text-end text-xl text-white">{chat.title}</p>
+                       </div>
+                       ) : ""
+                    }
+                    
                     <p className="text-sm sm:text-base whitespace-pre-wrap">
                       {chat.msg}
                     </p>
                   </div>
                 </div>
+                
               ))}
+              
             </div>
+            
+            
           </div>
 
           <div className="px-4 sm:px-6 lg:px-8 py-2 sm:py-3">

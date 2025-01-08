@@ -6,21 +6,35 @@ import { FaApple } from "react-icons/fa";
 import { BsFacebook } from "react-icons/bs";
 import { FaMobileAlt } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import { ImCross } from "react-icons/im";
 
 export default function LoginSignUp() {
-  const {singInWithGoogle} = useContext(GlobalContext)
+  const {singInWithGoogle,onBoarding} = useContext(GlobalContext)
   return (
     <div class="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-[100vh]">
       <div class="bg-card-background">
+      
         <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
-          <Link
+          {
+            onBoarding ? (<Link
+              aria-label="Go back"
+              class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
+              type="button"
+              to="/"
+            >
+              <ImCross />
+            </Link>): (<Link
             aria-label="Go back"
             class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
             type="button"
             to="/profile"
           >
             <FaArrowLeft />
-          </Link>
+          </Link>)
+          }
+          
+
+          
           <div class="grow text-primary-700">
             <h1 class="t-body-m m-0 pr-9 text-center text-3xl">Account</h1>
           </div>

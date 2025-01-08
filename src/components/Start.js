@@ -2,12 +2,12 @@ import React from "react";
 import FlowerSvg from "../assets/Flower.js";
 import { useNavigate } from "react-router-dom";
 
-const Welcome = () => {
+const Start = () => {
   const navigate = useNavigate();
 
   return (
     <div className="w-[100vw] h-screen bg-[#FAF3EA] flex justify-center items-center p-4">
-      <div className="w-full md:w-1/2 h-full flex justify-center items-center flex-col">
+      <div className="w-full md:w-1/2 h-full flex  items-center flex-col">
         <div className="w-3/4 h-[40%] md:h-[60%] flex justify-center items-center flex-col">
           <FlowerSvg className="w-3/4 md:w-1/2 h-auto" />
         </div>
@@ -33,9 +33,17 @@ const Welcome = () => {
         >
           Next
         </button>
+        <button
+          onClick={() => 
+              {navigate("/onboarding/account");}
+            }
+          className="text-success-500 w-[350px] h-auto py-4 text-lg md:text-l font-medium mb-1 rounded-full font-sans my-5 "
+        >
+          Login
+        </button>
       </div>
     </div>
   );
 };
 
-export default Welcome;
+export default Start;

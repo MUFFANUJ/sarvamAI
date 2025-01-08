@@ -32,7 +32,7 @@ export default function Threads() {
           ])
     }
   return (
-    <div class="w-full lg:w-[375px] lg:shrink-0 lg:border-r lg:border-neutral-300 flex flex-col p-3 ">
+    <div class="w-full lg:w-[375px] lg:shrink-0 lg:border-r lg:border-neutral-300 flex flex-col p-3 pt-5 bg-primary-100">
       <div class="bg-card-background">
       </div>
       <div class="flex w-full items-center justify-between px-6 pb-6">
@@ -56,6 +56,9 @@ export default function Threads() {
             <button
               type="button"
               class="flex h-[78px] w-full items-center overflow-hidden rounded-10 bg-[#F5EADC] hover:bg-neutral-200-hover active:bg-neutral-200-tap rounded-lg"
+              onClick={()=>{
+                setChatHistory(item)
+              }}
             >
               <div class="flex flex-col justify-center gap-1 overflow-x-hidden px-4 text-left">
                 <div class="t-body-s w-full truncate text-neutral-900">

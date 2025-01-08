@@ -1,6 +1,7 @@
 import React from "react";
 import  shareWithOthers  from '../assets/share.svg';
 import { FaArrowLeft } from "react-icons/fa6";
+import { ToastContainer, toast } from "react-toastify";
 export default function ShareWithOthers() {
   function copyToClipboard() {
     navigator.clipboard.writeText("https://pi.ai/referral")
@@ -28,10 +29,34 @@ export default function ShareWithOthers() {
           <button
             class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-success-500 hover:bg-success-400  mx-auto mt-14"
             type="button"
-            onClick={copyToClipboard}
+            onClick={()=>{
+              copyToClipboard()
+              toast.success('🦄 Link Copied To ClipBoard successfully!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+                });
+            }}
           >
             Copy link
           </button>
+          <ToastContainer
+position="top-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick={false}
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="dark"
+/>
         </div>
         <button
           class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200 absolute left-4 top-8 lg:left-10"

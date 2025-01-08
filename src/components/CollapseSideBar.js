@@ -6,6 +6,19 @@ import downloadPiHistory from "../assets/downloadPiHistory.svg"
 
 export default function CollapseSideBar() {
   const { setUserInput, userInput, aiResponse, sendReq, setSendReq,userName } = useContext(GlobalContext);
+  function getGreeting() {
+    const currentHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false });
+  
+    if (currentHour >= 5 && currentHour < 12) {
+      return 'Good Morning';
+    } else if (currentHour >= 12 && currentHour < 17) {
+      return 'Good Afternoon';
+    } else if (currentHour >= 17 && currentHour < 21) {
+      return 'Good Evening';
+    } else {
+      return 'Good Night';
+    }
+  }
   useEffect(() => {
     if (!sendReq) return;
     if (userInput) {
@@ -19,7 +32,7 @@ export default function CollapseSideBar() {
       <div className="bg-primary-100 lg:pt-8 h-screen overflow-y-scroll scrollbar-hide">
         <h2 class="mb-6 px-6">
           <div class="font-condensed text-h-m text-primary-700 text-2xl font-openSans">
-            Good morning, {userName} 
+            {getGreeting()}, {userName} 
           </div>
         </h2>
         <h2 class="mb-6 px-6">
