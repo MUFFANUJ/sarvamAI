@@ -16,7 +16,7 @@ const NameInput = ({setOnBoarding}) => {
     };
 
     return (
-        <div className='w-full h-screen bg-[#FAF3EA] flex justify-start items-center p-4 flex-col'>
+        <div className='w-full h-screen bg-[#FAF3EA] flex justify-start items-center p-4 flex-col animate-fadeIn'>
             <header className='w-full mt-7 fixed px-5 top-0'>
                 <div className='bg-[#F5EADC] text-[#0D3C26] h-10 w-10 rounded-full flex items-center justify-center cursor-pointer' onClick={()=> {navigate("/onboarding")}}>
                     <FaArrowLeft />

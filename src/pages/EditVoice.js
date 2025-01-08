@@ -18,7 +18,7 @@ export default function EditVoice() {
   const { voices, setSelectedVoice, setIsMute, selectedVoice } =
     useContext(GlobalContext);
   return (
-    <div className="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-[100vh]">
+    <div className="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-[100vh] animate-fadeIn">
       <div className="bg-card-background">
         <div className="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
           <Link
