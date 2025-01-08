@@ -211,7 +211,7 @@ export default function ChatSpace() {
                       </div>
                     )}
 
-                    <p className="text-sm sm:text-base whitespace-pre-wrap">
+                    <p className="text-sm sm:text-base whitespace-pre-wrap animate-fadeIn">
                       {chat.msg}
                     </p>
                   </div>
