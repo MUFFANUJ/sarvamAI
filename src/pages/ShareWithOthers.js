@@ -19,14 +19,14 @@ export default function ShareWithOthers() {
 
           <img src={shareWithOthers} />
           </div>
-          <p class="t-heading-m text-primary-700 md:text-center py-6 text-center md:py-9">
+          <p class="t-heading-m  md:text-center py-6 text-center md:py-9 text-xl">
             Spread the word
           </p>
-          <p class="t-body-m text-center text-neutral-900">
+          <p class="t-body-m text-center  text-2xl">
             Share a link to Pi with a friend...
           </p>
           <button
-            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-[#038247] hover:bg-[rgb(28,59,40)] active:bg-primary-700-tap mx-auto mt-14"
+            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-[#038247] hover:bg-[rgb(28,59,40)]  mx-auto mt-14"
             type="button"
             onClick={copyToClipboard}
           >
@@ -34,7 +34,7 @@ export default function ShareWithOthers() {
           </button>
         </div>
         <button
-          class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap absolute left-4 top-8 lg:left-10"
+          class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-[#EDE1D1]  absolute left-4 top-8 lg:left-10"
           type="button"
         >
           <FaArrowLeft />

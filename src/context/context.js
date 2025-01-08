@@ -59,52 +59,21 @@ const ContextProvider = ({ children }) => {
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("name")
   };
-  function convertFormattedText(inputText) {
-    let outputText = inputText
-        .replace(/^\*\*(.*?)\*\*\n/gm, '<h2>$1</h2>') 
-        .replace(/^\*(.*?)\*\n/gm, '<li>$1</li>') 
-        .replace(/^\d+\.\s*(.*)$/gm, '<h3>$1</h3>') 
 
-    outputText = outputText.replace(/(<li>.*?<\/li>)/g, '<ul>$1</ul>');
-    outputText = outputText.replace(/<\/ul>\s*<ul>/g, '');
+  function simplifyText(inputText) {
+    let simplifiedText = inputText.replace(/[*?\/\\&#]/g, '');
+  
+    simplifiedText = simplifiedText
+      .replace(/-\s+\*\*/g, '\n- ')  
+      .replace(/\*\*/g, '')          
+      .replace(/(##|\*\*|\#)/g, '')  
+      .replace(/\n\s*\n/g, '\n')     
+      .replace(/(\d+\.)/g, '\n$1')   
+      .replace(/([A-Z][a-z]+):/g, '$1'); 
+  
+    return simplifiedText.trim();
+  }
 
-    outputText = outputText.split('\n\n').map(paragraph => {
-        return `<p>${paragraph.trim().replace(/\n/g, '<br>')}</p>`;
-    }).join('');
-
-    outputText = outputText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); 
-
-    return  convertToNormalText(outputText);
-}
-
-function convertToNormalText(htmlText) {
-    let text = htmlText
-        // Remove HTML tags but keep their content
-        .replace(/<[^>]+>/g, '')
-        // Replace HTML entities
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"')
-        // Preserve list formatting
-        .replace(/•/g, '-')  // Replace bullet points with dashes
-        // Handle multiple spaces and line breaks while preserving formatting
-        .replace(/[ \t]+/g, ' ')  // Replace multiple spaces with single space
-        .replace(/\n{3,}/g, '\n\n')  // Replace multiple line breaks with double line break
-        .replace(/^\s+|\s+$/gm, '')  // Trim each line
-        .replace(/^(-|\d+\.)\s*/gm, '\n$1 ')  // Ensure list items start on new lines
-        .trim();
-    
-    // Fix spacing around list items and headers
-    text = text
-        .split('\n')
-        .map(line => line.trim())
-        .join('\n')
-        .replace(/\n{3,}/g, '\n\n');  // Final cleanup of multiple line breaks
-    
-    return text;
-}
   const aiResponse = () => {
     setIsLoading(true)
     const apiKey = "AIzaSyBcYndL_3k3KkXXHRPZIo5kQz-oNeeK0OQ";
@@ -131,7 +100,7 @@ function convertToNormalText(htmlText) {
       setChatHistory((prev) => [...prev, { msg: userInput, bot: false }]);
       setUserInput("");
       const result = await chatSession.sendMessage(userInput);
-      const formattedText = convertFormattedText(result.response.text())
+      const formattedText = simplifyText(result.response.text())
       
       setIsLoading(false)
       setAiRes(formattedText);
@@ -141,12 +110,14 @@ function convertToNormalText(htmlText) {
           ...prev,
           { msg: formattedText, bot: true },
         ];
+        if(selectedVoice && !isMute){
           window.speechSynthesis.cancel();
           const utterance = new SpeechSynthesisUtterance(
             result.response.text()
           );
           utterance.voice = selectedVoice;
           window.speechSynthesis.speak(utterance);
+        }
         
         return newHistory;
       });

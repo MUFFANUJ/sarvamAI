@@ -20,10 +20,17 @@ import LoggedIn from "./components/LoggedIn";
 import { GlobalContext } from "./context/context";
 
 function App() {
-  const { logged } = useContext(GlobalContext);
+  const { logged,setLogged } = useContext(GlobalContext);
   const [sideOptions, setSideOptions] = useState(1);
   const [onBoarding, setOnBoarding] = useState(true);
   useEffect(()=>{
+    const loggedInStatus = localStorage.getItem("loggedIn");
+    
+    // Log the retrieved value for debugging
+    console.log("Logged In Status:", loggedInStatus);
+
+    // Update the state with the retrieved value
+    setLogged(loggedInStatus === "true");
     setOnBoarding(localStorage.getItem("onBoarding"))
   },[])
 
@@ -55,9 +62,9 @@ function App() {
                 <CollapseSideBar />
               ) : sideOptions === 2 ? (
                 <ProfileSidebar />
-              ) : (
-                <Threads />
-              )}
+              ) : logged ?
+                <Threads /> : ""
+              }
             </div>
 
             <div className="h-screen relative bg-secondary lg:block md:min-w-[100vw] lg:min-w-full">

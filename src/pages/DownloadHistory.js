@@ -23,14 +23,14 @@ export default function DownloadHistory() {
         <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
           <Link
             aria-label="Go back"
-            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-neutral-300 hover:bg-neutral-300-hover active:bg-neutral-300-tap"
+            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-[#EDE1D1]"
             type="button"
             to="/profile"
           >
             <FaArrowLeft />
           </Link>
           <div class="grow text-primary-700">
-            <h1 class="t-body-m m-0 pr-9 text-center">Manage history</h1>
+            <h1 class="t-body-m m-0 pr-9 text-center text-3xl">Manage history</h1>
           </div>
         </div>
       </div>

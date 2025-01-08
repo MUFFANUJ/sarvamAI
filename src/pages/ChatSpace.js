@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/context";
 import { ChevronDown } from "lucide-react";
 import { RiArrowDownSLine } from "react-icons/ri";
+import { FaVolumeMute } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa6";
 export default function ChatSpace() {
   const {
     chatHistory,
@@ -90,13 +92,7 @@ export default function ChatSpace() {
                 className="p-2 rounded-full transition-colors"
               >
                 {isMute ? (
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6 "
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                  >
-                    <path d="M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 001.5 12c0 .898.121 1.768.35 2.595.341 1.24 1.518 1.905 2.659 1.905h1.93l4.5 4.5c.945.945 2.561.276 2.561-1.06V4.06zM17.78 9.22a.75.75 0 10-1.06 1.06L18.44 12l-1.72 1.72a.75.75 0 001.06 1.06l1.72-1.72 1.72 1.72a.75.75 0 101.06-1.06L20.56 12l1.72-1.72a.75.75 0 00-1.06-1.06l-1.72 1.72-1.72-1.72z" />
-                  </svg>
+                  <FaVolumeMute size={25}/>
                 ) : (
                   <div
                     className="flex items-center"
@@ -280,17 +276,9 @@ export default function ChatSpace() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
+                    
                   ) : (
-                    <svg
-                      className="w-4 h-4 sm:w-5 sm:h-5"
-                      viewBox="0 0 12 16"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M.852 7.648a1.2 1.2 0 0 1 0-1.696l4.8-4.8a1.2 1.2 0 0 1 1.696 0l4.8 4.8a1.2 1.2 0 1 1-1.697 1.696L7.7 4.897V14a1.2 1.2 0 0 1-2.4 0V4.897L2.548 7.648a1.2 1.2 0 0 1-1.696 0Z"
-                      />
-                    </svg>
+                    <FaArrowUp/>
                   )}
                 </button>
               </div>
