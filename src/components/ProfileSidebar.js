@@ -5,6 +5,7 @@ import { User, Share, Shield, FileText,History } from 'lucide-react';
 import { SiDiscord } from "react-icons/si";
 import { RiVoiceprintFill } from "react-icons/ri";
 import { FaRegSmile } from "react-icons/fa";
+import { IoIosShareAlt } from "react-icons/io";
 
 export default function ProfileSidebar() {
   const menuItems = [
@@ -30,7 +31,7 @@ export default function ProfileSidebar() {
       external: true
     },
     {
-      icon: <Share className="h-6 w-6" />,
+      icon: <IoIosShareAlt className="h-6 w-6" />,
       text: 'Share Pi with others',
       to: '/profile/referral'
     },

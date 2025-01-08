@@ -19,7 +19,7 @@ export default function LoggedIn() {
             <FaArrowLeft />
           </Link>
       </div>
-      <h2 className="t-body-m m-0 mb-8 text-xl">Signed in as {username}</h2>
+      <h2 className="t-body-m m-0 mb-8 text-xl">Signed in {username}</h2>
       <h1 className="t-heading-m text-xl">We would love to exhange messages!</h1>
       <h2 className="t-body-m m-0 mt-8 text-neutral-900 ">
         <a className=" text-green-700 text-2xl p-5" href="/profile/manage-history">
