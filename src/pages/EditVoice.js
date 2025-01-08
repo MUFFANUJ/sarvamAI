@@ -18,26 +18,26 @@ export default function EditVoice() {
   const { voices, setSelectedVoice, setIsMute, selectedVoice } =
     useContext(GlobalContext);
   return (
-    <div class="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-[100vh]">
-      <div class="bg-card-background">
-        <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
+    <div className="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-[100vh]">
+      <div className="bg-card-background">
+        <div className="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
           <Link
             aria-label="Go back"
-            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
+            className="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
             type="button"
             to="/profile"
           >
             <FaArrowLeft />
           </Link>
-          <div class="grow text-primary-700">
-            <h1 class="t-body-m m-0 pr-9 text-center text-3xl">
+          <div className="grow text-primary-700">
+            <h1 className="t-body-m m-0 pr-9 text-center text-3xl">
               Voice settings
             </h1>
           </div>
         </div>
       </div>
-      <div class="mx-auto w-full max-w-[576px] px-6 py-10">
-        <div class="grid grid-cols-2 gap-4">
+      <div className="mx-auto w-full max-w-[576px] px-6 py-10">
+        <div className="grid grid-cols-2 gap-4">
           {voices.map((voice, index) => (
             <button
               onClick={() => {
@@ -61,16 +61,16 @@ export default function EditVoice() {
       </div>
 
       {onBoarding ? (
-        <div class="flex flex-col items-center justify-center gap-3 pt-8 md:flex-row-reverse">
+        <div className="flex flex-col items-center justify-center gap-3 pt-8 md:flex-row-reverse">
           <button
-            class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-white bg-success-500 "
+            className="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-white bg-success-500 "
             type="button"
             onClick={takeHome}
           >
             Choose voice
           </button>
           <button
-            class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 border-[1.5px] border-neutral-500 bg-neutral-50 active:bg-neutral-50-tap hover:bg-neutral-50-hover text-primary-600"
+            className="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 border-[1.5px] border-neutral-500 bg-neutral-50 active:bg-neutral-50-tap hover:bg-neutral-50-hover text-primary-600"
             type="button"
             onClick={takeHome}
           >

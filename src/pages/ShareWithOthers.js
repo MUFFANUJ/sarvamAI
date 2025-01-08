@@ -20,14 +20,14 @@ export default function ShareWithOthers() {
           <div className="h-40 flex justify-center">
             <img src={shareWithOthers} />
           </div>
-          <p class="t-heading-m  md:text-center py-6 text-center md:py-9 text-xl">
+          <p className="t-heading-m  md:text-center py-6 text-center md:py-9 text-xl">
             Spread the word
           </p>
-          <p class="t-body-m text-center  text-2xl">
+          <p className="t-body-m text-center  text-2xl">
             Share a link to Pi with a friend...
           </p>
           <button
-            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-success-500 hover:bg-success-400  mx-auto mt-14"
+            className="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-success-500 hover:bg-success-400  mx-auto mt-14"
             type="button"
             onClick={() => {
               copyToClipboard();
@@ -59,7 +59,7 @@ export default function ShareWithOthers() {
           />
         </div>
         <button
-          class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200 absolute left-4 top-8 lg:left-10"
+          className="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200 absolute left-4 top-8 lg:left-10"
           type="button"
         >
           <FaArrowLeft />

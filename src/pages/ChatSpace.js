@@ -109,7 +109,7 @@ export default function ChatSpace() {
                     <svg
                       stroke-width="0"
                       viewBox="0 0 24 24"
-                      class="h-5 w-5 text-primary-700 lg:h-6 lg:w-6"
+                      className="h-5 w-5 text-primary-700 lg:h-6 lg:w-6"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -137,27 +137,27 @@ export default function ChatSpace() {
                     className="absolute end-6 top-6 z-10 w-44"
                     ref={dropdownRef}
                   >
-                    <div class="relative flex flex-col-reverse bg-neutral-100">
+                    <div className="relative flex flex-col-reverse bg-neutral-100">
                       <VoicesDropDown handleVoiceSelection={handleVoiceSelection} />
                       <div
-                        class="relative flex items-center justify-end self-end overflow-hidden p-2"
+                        className="relative flex items-center justify-end self-end overflow-hidden p-2"
                         style={{ borderRadius: "12px" }}
                       >
                         <div
-                          class="absolute inset-0 -z-10 bg-neutral-200"
+                          className="absolute inset-0 -z-10 bg-neutral-200"
                           style={{ borderRadius: "12px" }}
                         ></div>
                         <button
-                          class="group z-10 flex items-center text-neutral-800"
+                          className="group z-10 flex items-center text-neutral-800"
                           type="button"
                         >
                           <div>
                             <AiFillSound size={25}/>
                           </div>
-                          <span class="t-label pl-4">Voice on</span>
+                          <span className="t-label pl-4">Voice on</span>
                         </button>
                         <button
-                          class="z-10 pl-4 text-neutral-900"
+                          className="z-10 pl-4 text-neutral-900"
                           type="button"
                         >
                           <div

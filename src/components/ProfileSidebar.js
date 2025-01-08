@@ -1,8 +1,10 @@
 import React from "react";
 import BackButton from "./subComponents/BackButton";
 import MenuItem from "./MenuItem";
-import { User, Settings, Share, MessageCircle, Shield, FileText,History } from 'lucide-react';
+import { User, Share, Shield, FileText,History } from 'lucide-react';
 import { SiDiscord } from "react-icons/si";
+import { RiVoiceprintFill } from "react-icons/ri";
+import { FaRegSmile } from "react-icons/fa";
 
 export default function ProfileSidebar() {
   const menuItems = [
@@ -17,14 +19,14 @@ export default function ProfileSidebar() {
       to: '/profile/manage-history'
     },
     {
-      icon: <Settings className="h-6 w-6" />,
+      icon: <RiVoiceprintFill className="h-6 w-6" />,
       text: 'Voice settings',
       to: '/profile/settings'
     },
     {
-      icon: <MessageCircle className="h-6 w-6" />,
+      icon: <FaRegSmile className="h-6 w-6" />,
       text: 'Give feedback',
-      to: 'https://form.typeform.com/to/AzrorQcf',
+      to: 'https://docs.google.com/forms/d/e/1FAIpQLSdE5cc5jPIbdOgFufH-tCio4fMMRUiiFIGJ_RoH0FSrqhFw-A/viewform?usp=header',
       external: true
     },
     {
@@ -50,18 +52,18 @@ export default function ProfileSidebar() {
     }
   ];
   return (
-    <div className="w-full h-screen mx-auto md:mx-0 max-w-md p-4 md:p-4 space-y-4 md:space-y-6 bg-primary-100">
-      <div className="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-6">
+    <div className="bg-primary-100 pt-8 h-screen overflow-y-scroll scrollbar-hide p-5">
+      <div className="flex items-center mt-2 rounded-t-card md:mt-0 md:rounded-none lg:px-6">
         <BackButton />
         <div className="grow text-primary-700">
-          <h1 className="font-condensed text-h-l-mobile hidden lg:block text-2xl">
+          <h1 className="text-h-l-mobile hidden lg:block text-2xl font-semibold">
             Profile
           </h1>
         </div>
       </div>
 
       <div className="flex flex-col space-y-1 overflow-y-auto  pb-6">
-        <h1 className="pb-8 pl-2 font-condensed text-h-l-mobile lg:hidden text-center">
+        <h1 className="pb-8 pl-2  text-h-l-mobile lg:hidden text-center text-2xl font-semibold">
           Profile
         </h1>
         
