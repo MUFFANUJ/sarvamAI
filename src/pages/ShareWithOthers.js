@@ -18,7 +18,7 @@ export default function ShareWithOthers() {
       <div className="relative">
         <div className="mx-auto px-5 pt-[100px]">
           <div className="h-40 flex justify-center">
-            <img src={shareWithOthers} />
+            <img src={shareWithOthers} alt="share With Others"/>
           </div>
           <p className="t-heading-m  md:text-center py-6 text-center md:py-9 text-xl">
             Spread the word

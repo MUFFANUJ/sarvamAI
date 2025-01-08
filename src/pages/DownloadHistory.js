@@ -39,7 +39,7 @@ export default function DownloadHistory() {
       </div>
       <div className="mx-auto h-[calc(100%-6.25rem)] max-w-[50rem] overflow-y-auto px-6 pb-5 text-center text-neutral-900">
         <div className="h-40 flex justify-center">
-          <img src={shareWithOthers} />
+          <img src={shareWithOthers} alt="share With Others"/>
         </div>
         <p className="t-body-m text-center">
           Inflection is proud to support the{" "}

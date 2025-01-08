@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/context";
 import { FaArrowLeft } from "react-icons/fa";

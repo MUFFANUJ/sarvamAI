@@ -43,7 +43,7 @@ export default function CollapseSideBar() {
             }}
           >
             <div className="pr-4">
-              <img src={downloadPiHistory}/>
+              <img src={downloadPiHistory} alt="download history"/>
             </div>
             <div>
               <h2 className="font-normal text-h-m text-primary-700">
