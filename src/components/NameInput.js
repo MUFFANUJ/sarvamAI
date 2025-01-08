@@ -11,7 +11,6 @@ const NameInput = ({setOnBoarding}) => {
         localStorage.setItem('name', inputName);
         if (!inputName.trim() || isSending) return;
         setIsSending(true);
-        // setOnBoarding(false)
         localStorage.setItem("onBoarding",false)
         navigate('/onboarding/voices');
     };

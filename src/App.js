@@ -58,7 +58,7 @@ function App() {
             </div>
 
             <div
-              className={`flex flex-col border-r h-[95vh] lg:h-screen overflow-scroll scrollbar-hide`}
+              className={`flex flex-col border-r h-[100vh] lg:h-screen overflow-scroll scrollbar-hide`}
             >
               {sideOptions === 1 ? (
                 <CollapseSideBar />
