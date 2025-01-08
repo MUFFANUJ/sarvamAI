@@ -16,7 +16,7 @@ export default function CollapseSideBar() {
 
   return (
 
-      <div className="bg-[rgb(246,239,228)] lg:pt-8 h-[100vh] overflow-scroll scrollbar-hide">
+      <div className="bg-primary-100 lg:pt-8 h-screen overflow-y-scroll scrollbar-hide">
         <h2 class="mb-6 px-6">
           <div class="font-condensed text-h-m text-primary-700 text-2xl font-openSans">
             Good morning, {userName} 
@@ -46,7 +46,7 @@ export default function CollapseSideBar() {
           </div>
         </h2>
         <div class="px-6 pb-6">
-          <div class="grid grid-cols-2 gap-4 overflow-y-auto sm:grid-cols-4 lg:grid-cols-2">
+          <div class="grid grid-cols-2 gap-4  sm:grid-cols-4 lg:grid-cols-2" >
             {gridOrderObjects.map((card) => (
               <button
                 key={card.gridOrder}

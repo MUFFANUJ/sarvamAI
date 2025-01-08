@@ -76,7 +76,7 @@ const ContextProvider = ({ children }) => {
 
   const aiResponse = () => {
     setIsLoading(true)
-    const apiKey = "AIzaSyBcYndL_3k3KkXXHRPZIo5kQz-oNeeK0OQ";
+    const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
     const genAI = new GoogleGenerativeAI(apiKey);
 
     const model = genAI.getGenerativeModel({

@@ -7,7 +7,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "1" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -22,7 +22,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "2" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -37,7 +37,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "4" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
     imageInnerDivClass:
       "relative bg-skeleton h-full aspect-square overflow-hidden rounded-10",
     textDivInnerClass: "t-heading-s flex-1 p-1 text-primary-700",
@@ -50,7 +50,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 row-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "3" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -65,7 +65,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "6" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
     imageInnerDivClass:
       "relative bg-skeleton h-full aspect-square overflow-hidden rounded-10",
     textDivInnerClass: "t-heading-s flex-1 p-1 text-primary-700",
@@ -78,7 +78,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "7" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -93,7 +93,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "8" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -108,7 +108,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 row-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "5" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -123,7 +123,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "9" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -138,7 +138,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "10" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -153,7 +153,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "12" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
     imageInnerDivClass:
       "relative bg-skeleton h-full aspect-square overflow-hidden rounded-10",
     textDivInnerClass: "t-heading-s flex-1 p-1 text-primary-700",
@@ -166,7 +166,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 row-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "11" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -181,7 +181,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "14" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
     imageInnerDivClass:
       "relative bg-skeleton h-full aspect-square overflow-hidden rounded-10",
     textDivInnerClass: "t-heading-s flex-1 p-1 text-primary-700",
@@ -194,7 +194,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "15" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -209,7 +209,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "16" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -224,7 +224,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 row-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "13" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -239,7 +239,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "17" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -254,7 +254,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "18" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -269,7 +269,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "22" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 bg-neutral-50 hover:bg-neutral-50-hover flex-row-reverse items-end p-3 min-h-[160px]",
     imageInnerDivClass:
       "relative bg-skeleton h-full aspect-square overflow-hidden rounded-10",
     textDivInnerClass: "t-heading-s flex-1 p-1 text-primary-700",
@@ -282,7 +282,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "23" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -297,7 +297,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "24" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -312,7 +312,7 @@ const gridOrderObjects = [
     btnClass: "col-span-2 row-span-2 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "21" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[320px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -327,7 +327,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "25" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
@@ -342,7 +342,7 @@ const gridOrderObjects = [
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "26" },
     imageDivClass:
-      "group/card relative flex h-full w-full overflow-hidden rounded-20 border border-white text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
+      "group/card relative flex h-full w-full overflow-hidden rounded-20  text-left shadow-card transition-all duration-150 hover:scale-95 justify-end flex-col min-h-[160px]",
     imageInnerDivClass: "relative bg-skeleton h-full w-full",
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",

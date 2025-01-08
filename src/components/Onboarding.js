@@ -28,7 +28,7 @@ export const Onboarding = () => {
                         !isSecondPage ? navigate('/') : togglePage()
                     }}
                     aria-label="Go back"
-                    className="flex bg-[#EDE1D1] h-9 w-9 items-center justify-center rounded-full p-1.5 text-[#0D3C26] hover:bg-[#E5D5C0] active:bg-[#DEC9B0] absolute ml-4 mt-8 z-20 transition-all duration-300 ease-in-out"
+                    className="flex bg-primary-200 h-9 w-9 items-center justify-center rounded-full p-1.5 text-[#0D3C26] hover:bg-[#E5D5C0] active:bg-[#DEC9B0] absolute ml-4 mt-8 z-20 transition-all duration-300 ease-in-out"
                     type="button"
                 >
                     <svg

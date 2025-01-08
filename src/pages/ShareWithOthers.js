@@ -12,7 +12,7 @@ export default function ShareWithOthers() {
       });
   }
   return (
-    <div className="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
+    <div className="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-screen">
       <div className="relative">
         <div className="mx-auto px-5 pt-[100px]">
           <div className="h-40 flex justify-center">
@@ -26,7 +26,7 @@ export default function ShareWithOthers() {
             Share a link to Pi with a friend...
           </p>
           <button
-            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-[#038247] hover:bg-[rgb(28,59,40)]  mx-auto mt-14"
+            class="flex items-center justify-center whitespace-nowrap t-action-m h-12 rounded-lg px-8 text-neutral-50 bg-success-500 hover:bg-success-400  mx-auto mt-14"
             type="button"
             onClick={copyToClipboard}
           >
@@ -34,7 +34,7 @@ export default function ShareWithOthers() {
           </button>
         </div>
         <button
-          class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-[#EDE1D1]  absolute left-4 top-8 lg:left-10"
+          class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200 absolute left-4 top-8 lg:left-10"
           type="button"
         >
           <FaArrowLeft />

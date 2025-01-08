@@ -18,12 +18,12 @@ export default function DownloadHistory() {
     URL.revokeObjectURL(url);
   }
   return (
-    <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
+    <div class="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-screen">
       <div class="bg-card-background">
         <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
           <Link
             aria-label="Go back"
-            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-[#EDE1D1]"
+            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
             type="button"
             to="/profile"
           >
@@ -57,7 +57,7 @@ export default function DownloadHistory() {
           read easily and bring with you.
         </p>
         <button
-          class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-neutral-50 bg-green-700 hover:bg-primary-700-hover active:bg-primary-700-tap mx-auto mt-5"
+          class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 text-neutral-50 bg-success-500 hover:bg-success-400 mx-auto mt-5"
           type="button"
           onClick={downloadChatHistory}
         >

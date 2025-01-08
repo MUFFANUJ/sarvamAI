@@ -25,11 +25,6 @@ function App() {
   const [onBoarding, setOnBoarding] = useState(true);
   useEffect(()=>{
     const loggedInStatus = localStorage.getItem("loggedIn");
-    
-    // Log the retrieved value for debugging
-    console.log("Logged In Status:", loggedInStatus);
-
-    // Update the state with the retrieved value
     setLogged(loggedInStatus === "true");
     setOnBoarding(localStorage.getItem("onBoarding"))
   },[])
@@ -52,6 +47,7 @@ function App() {
               <Sidebar
                 setSideOptions={setSideOptions}
                 sideOptions={sideOptions}
+                logged={logged}
               />
             </div>
 
@@ -67,7 +63,7 @@ function App() {
               }
             </div>
 
-            <div className="h-screen relative bg-secondary lg:block md:min-w-[100vw] lg:min-w-full">
+            <div className="h-screen relative lg:block md:min-w-[100vw] lg:min-w-full">
               <Routes>
                 <Route path="/" element={<ChatSpace />} />
                 <Route path="/discover" element={<ChatSpace />} />

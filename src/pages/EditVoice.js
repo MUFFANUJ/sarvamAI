@@ -6,12 +6,12 @@ import { FaArrowLeft } from "react-icons/fa";
 export default function EditVoice() {
   const { voices, setSelectedVoice ,setIsMute,selectedVoice} = useContext(GlobalContext);
   return (
-    <div class="relative grow overflow-x-auto flex flex-col bg-[rgb(249,243,235)] overflow-y-scroll h-[100vh]">
+    <div class="relative grow overflow-x-auto flex flex-col bg-primary-50 overflow-y-scroll h-[100vh]">
       <div class="bg-card-background">
         <div class="flex items-center py-5 mt-2 rounded-t-card md:mt-0 md:rounded-none px-4 lg:px-10">
           <Link
             aria-label="Go back"
-            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-[#EDE1D1]"
+            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
             type="button"
             to="/profile"
           >
@@ -32,7 +32,7 @@ export default function EditVoice() {
               }}
               type="button"
               className={`${
-                voice === selectedVoice ? "bg-[rgb(220,183,245)]" : selectedVoice === false && index === 0 ? "bg-[rgb(220,183,245)]" : ""
+                voice === selectedVoice ? "bg-selected-50" : selectedVoice === false && index === 0 ? "bg-selected-50" : ""
               } flex items-center justify-between rounded-lg border px-3 py-5 font-sans text-body-m-mobile text-primary-700 border-neutral-500`}
               
             >

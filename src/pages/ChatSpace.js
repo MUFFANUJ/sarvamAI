@@ -82,7 +82,7 @@ export default function ChatSpace() {
   }, [isDropdownOpen]);
 
   return (
-    <div className="flex flex-col h-screen bg-[rgb(249,243,235)]">
+    <div className="flex flex-col h-screen bg-primary-50">
       <div className="flex-1 overflow-hidden">
         <div className="h-full flex flex-col">
           <div className="flex items-center justify-end px-4 sm:px-6 lg:px-8 py-4 ">
@@ -132,7 +132,7 @@ export default function ChatSpace() {
                     className="absolute end-6 top-6 z-10 w-44"
                     ref={dropdownRef}
                   >
-                    <div class="relative flex flex-col-reverse bg-[rgb(242,233,219)]">
+                    <div class="relative flex flex-col-reverse bg-neutral-100">
                       <div class="t-action-m -mt-5 flex flex-col rounded-b-xl  p-2 pt-5">
                         {voices.map((voice, index) => (
                           <button
@@ -142,11 +142,11 @@ export default function ChatSpace() {
                             type="button"
                             className={`${
                               voice === selectedVoice
-                                ? "bg-[rgb(220,183,245)]"
+                                ? "bg-selected-50"
                                 : selectedVoice === false && index == 0
-                                ? "bg-[rgb(220,183,245)]"
+                                ? "bg-selected-50"
                                 : ""
-                            } mb-1 rounded px-2 py-3 text-center hover:bg-[rgb(234,224,209)] border-neutral-500`}
+                            } mb-1 rounded px-2 py-3 text-center hover:bg-neutral-200 border-neutral-500`}
                           >
                             Pi {index + 1}{" "}
                             {[0, 1, 2].includes(index) ? "✨" : ""}
@@ -215,7 +215,7 @@ export default function ChatSpace() {
                     className={`max-w-[85%] sm:max-w-[75%] rounded-lg p-3 sm:p-4 ${
                       chat.bot
                         ? "text-gray-900"
-                        : "bg-[rgb(243,234,221)] text-gray-800"
+                        : "bg-primary-800 text-gray-800"
                     }`}
                   >
                     <p className="text-sm sm:text-base whitespace-pre-wrap">
