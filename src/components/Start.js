@@ -6,7 +6,7 @@ const Start = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-[100vw] h-screen bg-[#FAF3EA] flex justify-center items-center p-4">
+    <div className="w-[100vw] h-screen bg-[#FAF3EA] flex justify-center items-center p-4 animate-fadeIn">
       <div className="w-full md:w-1/2 h-full flex  items-center flex-col">
         <div className="w-3/4 h-[40%] md:h-[60%] flex justify-center items-center flex-col">
           <FlowerSvg className="w-3/4 md:w-1/2 h-auto" />
