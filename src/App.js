@@ -20,8 +20,8 @@ import LoggedIn from "./components/LoggedIn";
 import { GlobalContext } from "./context/context";
 
 function App() {
-  const { logged,setLogged,onBoarding,setOnBoarding } = useContext(GlobalContext);
-  const [sideOptions, setSideOptions] = useState(1);
+  const { logged,setLogged,onBoarding,setOnBoarding,sideOptions,setSideOptions } = useContext(GlobalContext);
+  
   useEffect(()=>{
     const loggedInStatus = localStorage.getItem("loggedIn");
     if(loggedInStatus){
@@ -35,7 +35,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {onBoarding ? (
+        {!onBoarding ? (
           <Routes>
             <Route path="/" element={<Welcome />} />
             <Route path="/onboarding" element={<Onboarding />} />

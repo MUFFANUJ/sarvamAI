@@ -34,6 +34,7 @@ const ContextProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [userName, setUserName] = useState(localStorage.getItem("name"));
   const [logged, setLogged] = useState(false);
+  const [sideOptions, setSideOptions] = useState(1);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
@@ -215,6 +216,8 @@ const ContextProvider = ({ children }) => {
     logOut,
     onBoarding,
     setOnBoarding,
+    sideOptions,
+    setSideOptions
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>

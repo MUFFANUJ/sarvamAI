@@ -1,5 +1,5 @@
 import React from "react";
-import BackButton from "./BackButton";
+import BackButton from "./subComponents/BackButton";
 import MenuItem from "./MenuItem";
 import { User, Settings, Share, MessageCircle, Shield, FileText,History } from 'lucide-react';
 import { SiDiscord } from "react-icons/si";

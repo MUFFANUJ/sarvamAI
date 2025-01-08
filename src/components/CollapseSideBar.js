@@ -31,7 +31,7 @@ export default function CollapseSideBar() {
 
       <div className="bg-primary-100 lg:pt-8 h-screen overflow-y-scroll scrollbar-hide">
         <h2 class="mb-6 px-6">
-          <div class="font-condensed text-h-m text-primary-700 text-2xl font-openSans">
+          <div class=" text-h-m text-primary-700 text-2xl">
             {getGreeting()}, {userName} 
           </div>
         </h2>
@@ -46,11 +46,11 @@ export default function CollapseSideBar() {
               <img src={downloadPiHistory}/>
             </div>
             <div>
-              <h2 class="font-condensed text-h-m text-primary-700">
+              <h2 class="font-normal text-h-m text-primary-700">
                 Download your Pi conversation history
               </h2>
               <Link
-                class="t-body-s mt-4 block text-primary-600"
+                class="t-body-s mt-4 block text-success-500"
                 to="/profile/manage-history"
               >
                 Manage history
@@ -59,7 +59,7 @@ export default function CollapseSideBar() {
           </div>
         </h2>
         <div class="px-6 pb-6">
-          <div class="grid grid-cols-2 gap-4  sm:grid-cols-4 lg:grid-cols-2" >
+          <div class="grid grid-cols-2 gap-4  sm:grid-cols-4 lg:grid-cols-2 font-semibold" >
             {gridOrderObjects.map((card) => (
               <button
                 key={card.gridOrder}

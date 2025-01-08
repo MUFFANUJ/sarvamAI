@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/context"
+import { ToastContainer, toast } from "react-toastify";
 
 export default function LoggedIn() {
     const {logOut,username} = useContext(GlobalContext)
@@ -17,10 +18,34 @@ export default function LoggedIn() {
         <button
           class="flex items-center justify-center whitespace-nowrap t-action-m h-14 w-full max-w-[353px] rounded-full p-4 border-[1.5px] border-2 border-gray-700 active:bg-neutral-50-tap hover:bg-neutral-50-hover text-green-700 text-2xl mx-auto"
           type="button"
-          onClick={logOut}
+          onClick={() => {
+            logOut();
+            toast.success("✅ Logged Out Successfully!", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          }}
         >
           Sign out
         </button>
+        <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ export default function DownloadHistory() {
             target="_blank"
             title="Data Transfer Initiative"
             href="https://dtinit.org/"
-            className="text-blue-600"
+            className="text-success-500"
           >
             <u>Data Transfer Initiative</u>
           </a>{" "}
