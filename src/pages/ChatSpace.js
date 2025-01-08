@@ -10,6 +10,7 @@ import SpinAnimation from "../assets/SpinAnimation";
 import ReplyInThreads from "../components/subComponents/ReplyInThreads";
 import VoicesDropDown from "../components/subComponents/VoicesDropDown";
 import ChatFooter from "../components/subComponents/ChatFooter";
+import { ToastContainer, toast } from "react-toastify";
 export default function ChatSpace() {
   const {
     chatHistory,
@@ -24,6 +25,7 @@ export default function ChatSpace() {
     stopSpeaking,
     setSendReq,
     isLoading,
+    logged
   } = useContext(GlobalContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -50,6 +52,24 @@ export default function ChatSpace() {
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const textSubmit = ()=>{
+    if(userInput.length === 0){
+      toast.error("❌ Cant Give An Empty Request!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return
+    }
+    setSendReq(true);
+    aiResponse();
+  }
 
   useEffect(() => {
     if (isDropdownOpen) {
@@ -185,7 +205,7 @@ export default function ChatSpace() {
                           className="w-3/4 rounded-xl"
                           alt={chat.title}
                         />
-                        <p className="relative top-[-35px] w-3/4 text-end text-xl text-white">
+                        <p className="relative top-[-35px] w-3/4 text-end text-sm md:text-xl text-white">
                           {chat.title}
                         </p>
                       </div>
@@ -196,7 +216,7 @@ export default function ChatSpace() {
                     </p>
                   </div>
 
-                  {hoveredIndex === index && chat.bot ? (
+                  {hoveredIndex === index && chat.bot && logged ? (
                     <ReplyInThreads showSecondElement={showSecondElement} setShowSecondElement={setShowSecondElement} chat={chat} />
                   )
                 : ("")}
@@ -216,8 +236,7 @@ export default function ChatSpace() {
                   onChange={(e) => setUserInput(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
-                      setSendReq(true);
-                      aiResponse();
+                      textSubmit()
                     }
                   }}
                 />
@@ -230,8 +249,7 @@ export default function ChatSpace() {
                     } 
                     disabled:opacity-50`}
                   onClick={() => {
-                    setSendReq(true);
-                    aiResponse();
+                    textSubmit()
                   }}
                   disabled={isLoading || !userInput.trim()}
                 >
@@ -241,6 +259,18 @@ export default function ChatSpace() {
                     <FaArrowUp />
                   )}
                 </button>
+                <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
               </div>
             </div>
           </div>

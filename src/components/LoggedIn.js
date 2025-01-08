@@ -1,12 +1,24 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/context"
 import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function LoggedIn() {
     const {logOut,username} = useContext(GlobalContext)
     
   return (
-    <div class=" pt-16 px-6 pb-5 text-center bg-primary-100 h-screen w-full">
+    <div class="px-6 pb-5 text-center bg-primary-100 h-screen w-full">
+      <div className="pt-5">
+      <Link
+            aria-label="Go back"
+            class="flex h-9 w-9 items-center justify-center rounded-full p-1.5 text-primary-700 bg-primary-200"
+            type="button"
+            to="/profile"
+          >
+            <FaArrowLeft />
+          </Link>
+      </div>
       <h2 class="t-body-m m-0 mb-8 text-xl">Signed in as {username}</h2>
       <h1 class="t-heading-m text-xl">We would love to exhange messages!</h1>
       <h2 class="t-body-m m-0 mt-8 text-neutral-900 ">

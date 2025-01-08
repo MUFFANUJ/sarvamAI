@@ -249,8 +249,8 @@ const gridOrderObjects = [
   {
     gridOrder: 18,
     imageSrc:
-      "https://pi.ai/_next/image?url=https%3A%2F%2Fpi.ai%2Fpublic%2Fmedia%2Fdiscover%2Fimages%2Fimage.png&w=3840&q=100",
-    text: "Additional content here",
+      "https://pi.ai/_next/image?url=https%3A%2F%2Fpi.ai%2Fpublic%2Fmedia%2Fdiscover%2Fimages%2FH35QUyESV6Qry1wMKDe6W.png&w=640&q=100",
+    text: "How Much Should I Get Paid",
     btnClass: "col-span-1 sm:max-lg:order-[--grid-order]",
     style: { gridOrder: "18" },
     imageDivClass:
@@ -259,7 +259,7 @@ const gridOrderObjects = [
     textDivClass:
       "pointer-events-none absolute inset-0 opacity-[.16] transition-all duration-150 group-hover/card:bg-primary-900",
     textDivInnerClass:
-      "t-heading-s p-4 absolute w-full bg-gradient-to-b from-transparent to-primary-900 text-neutral-25",
+      "t-heading-s p-4 absolute w-full bg-gradient-to-b from-transparent to-primary-900 text-white",
   },
   {
     gridOrder: 22,
