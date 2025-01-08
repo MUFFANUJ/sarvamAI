@@ -5,7 +5,7 @@ import { GlobalContext } from "../context/context.js";
 import downloadPiHistory from "../assets/downloadPiHistory.svg"
 
 export default function CollapseSideBar() {
-  const { setUserInput, userInput, aiResponse, sendReq, setSendReq,userName } = useContext(GlobalContext);
+  const { setUserInput, userInput, aiResponse, sendReq, setSendReq,userName,setUserName } = useContext(GlobalContext);
   function getGreeting() {
     const currentHour = new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata', hour: 'numeric', hour12: false });
   
@@ -26,6 +26,13 @@ export default function CollapseSideBar() {
     }
     setSendReq(false)
   }, [userInput, sendReq]);
+
+  useEffect(()=>{
+    const nameVal = localStorage.getItem("name")
+    if(nameVal){
+      setUserName(nameVal)
+    }
+  })
 
   return (
 

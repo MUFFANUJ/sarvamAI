@@ -217,7 +217,8 @@ const ContextProvider = ({ children }) => {
     onBoarding,
     setOnBoarding,
     sideOptions,
-    setSideOptions
+    setSideOptions,
+    setUserName
   };
   return (
     <GlobalContext.Provider value={data}>{children}</GlobalContext.Provider>
