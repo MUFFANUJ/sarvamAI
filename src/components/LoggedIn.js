@@ -6,7 +6,7 @@ export default function LoggedIn() {
     const {logOut,username} = useContext(GlobalContext)
     
   return (
-    <div class="mt-14 px-6 pb-5 text-center">
+    <div class=" pt-16 px-6 pb-5 text-center bg-primary-100 h-screen w-full">
       <h2 class="t-body-m m-0 mb-8 text-xl">Signed in as {username}</h2>
       <h1 class="t-heading-m text-xl">We would love to exhange messages!</h1>
       <h2 class="t-body-m m-0 mt-8 text-neutral-900 ">
