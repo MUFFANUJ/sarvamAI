@@ -66,7 +66,7 @@ export default function Threads() {
                   chat {index+1}
                 </div>
                 <div className="t-heading-s text-md  font-medium w-full truncate text-primary-700">
-                  {item[item.length-1].msg}
+                  {item[item.length-1]?.msg}
                 </div>
               </div>
             </button>))):(<div className="text-center">
