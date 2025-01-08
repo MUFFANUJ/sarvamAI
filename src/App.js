@@ -41,8 +41,18 @@ function App() {
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/onboarding/account" element={<LoginSignUp />} />
             <Route path="/onboarding/voices" element={<EditVoice />} />
-            <Route path="*" element={<h1 className="w-screen h-screen flex justify-center items-center bg-primary-100 text-balck">Onboarding is Pending <p>
-              Please Complete The Onboarding Before Moving Forward</p></h1>} />
+            <Route path="*" element={
+            <h1 className="w-screen h-screen flex flex-col justify-center items-center bg-primary-100 text-balck">Onboarding is Pending 
+            <p>
+              Please Complete The Onboarding Before Moving Forward
+            </p>
+            <div>
+              <button className="p-3 bg-success-500 rounded-full text-white" onClick={()=> window.location.href = "/"}>
+                Go Back
+              </button>
+            </div>
+            </h1>
+            } />
             <Route
               path="/persononboarding"
               element={<NameInput setOnBoarding={setOnBoarding} />}
@@ -86,7 +96,16 @@ function App() {
                   element={!logged ? <LoginSignUp /> : <LoggedIn />}
                 />
                 <Route path="/profile/referral" element={<ShareWithOthers />} />
-                <Route path="*" element={<h1 className="flex w-screen h-screen justify-center items-center bg-primary-100 text-balck">Oopss... 404 Not Found!</h1>} />
+                <Route path="*" element={
+                  <h1 className="w-screen h-screen flex flex-col justify-center items-center bg-primary-100 text-balck">
+                    Oopss... 404 Not Found! 
+                  <div>
+                    <button className="p-3 bg-success-500 rounded-full text-white" onClick={()=> window.location.href = "/"}>
+                      Go Back
+                    </button>
+                  </div>
+                  </h1>
+                } />
               </Routes>
             </div>
           </div>
