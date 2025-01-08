@@ -5,7 +5,7 @@ import { IoPersonSharp } from "react-icons/io5";
 
 function Sidebar({ sideOptions, setSideOptions,logged }) {
     return (
-        <div className="h-full flex gap-1.5 md:flex-col text-[#6B6255] items-center p-4 bg-primary-100 md:h-screen xs:bg-[#fdf7f5]">
+        <div className="h-full flex gap-1.5 md:flex-col text-[#6B6255] items-center justify-evenly md:justify-start p-4 bg-primary-100 md:h-screen xs:bg-[#fdf7f5]">
             <Link
                 to="/discover"
                 className={`flex h-17 w-17 flex-col items-center justify-center rounded-xl text-neutral-900 gap-0.5 p-2 ${

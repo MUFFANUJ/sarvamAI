@@ -48,8 +48,8 @@ function App() {
             />
           </Routes>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-[96px_1fr] lg:grid-cols-[96px_375px_1fr] h-screen w-full overflow-y-auto scrollbar-hide">
-            <div className="md:block md:h-screen mx-auto md:m-0 md:border-r">
+          <div className="grid grid-cols-1 md:grid-cols-[96px_1fr] lg:grid-cols-[96px_375px_1fr] h-screen w-screen overflow-y-auto scrollbar-hide">
+            <div className="md:block md:h-screen mx-auto md:m-0 md:border-r w-full">
               <Sidebar
                 setSideOptions={setSideOptions}
                 sideOptions={sideOptions}

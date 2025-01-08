@@ -29,7 +29,7 @@ export default function CollapseSideBar() {
 
   return (
 
-      <div className="bg-primary-100 lg:pt-8 h-screen overflow-y-scroll scrollbar-hide">
+      <div className="bg-primary-100 pt-8 h-screen overflow-y-scroll scrollbar-hide">
         <h2 class="mb-6 px-6">
           <div class=" text-h-m text-primary-700 text-2xl">
             {getGreeting()}, {userName} 
