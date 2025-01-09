@@ -12,6 +12,7 @@ export default function EditVoice() {
   function takeHome(){
     localStorage.setItem("onBoarding",false)
       setOnBoarding(false)
+      setIsMute(true)
       navigate("/")
   }
 
