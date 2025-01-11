@@ -30,7 +30,7 @@ const VoiceProvider = ({ children }) => {
       
   
   const handleVoiceChange = (event) => {
-    const voiceURI = event.target.value;
+    const voiceURI = event.voiceURI;
     const voice = voices.find((v) => v.voiceURI === voiceURI);
     setSelectedVoice(voice);
 

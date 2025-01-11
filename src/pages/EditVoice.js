@@ -6,9 +6,9 @@ import { VoiceContext } from "../context/voiceContext";
 
 export default function EditVoice() {
   const navigate = useNavigate()
-  const { readLatestMessage } = useContext(VoiceContext);
+  const { readLatestMessage,handleVoiceChange } = useContext(VoiceContext);
   const {setOnBoarding,onBoarding} = useContext(GlobalContext)
-
+  
   function takeHome(){
     localStorage.setItem("onBoarding",false)
       setOnBoarding(false)
@@ -42,9 +42,10 @@ export default function EditVoice() {
           {voices.map((voice, index) => (
             <button
               onClick={() => {
-                setSelectedVoice(voice);
+                // setSelectedVoice(voice);
+                handleVoiceChange(voice)
                 setIsMute(false);
-                readLatestMessage()
+                // readLatestMessage()
               }}
               type="button"
               className={`${
