@@ -37,11 +37,11 @@ const NameInput = ({setOnBoarding}) => {
                 </div>
 
                 <div className='mt-10 w-full'>
-                    <div className="flex items-center md:w-[65vw] max-w-[800px] bg-white rounded-full shadow-lg overflow-hidden hover:border hover:border-[#c9b597] px-2">
+                    <div className="flex items-center md:w-[65vw] w-[80vw] max-w-[800px] bg-white rounded-full shadow-lg overflow-hidden hover:border hover:border-[#c9b597] px-2">
                         <input
                             type="text"
                             placeholder="Your first name"
-                            className="flex-grow px-5 font-normal py-3 text-[24px] h-auto text-black placeholder-[#c9b597] focus:outline-none placeholder:tracking-wide placeholder:text-[24px]"
+                            className="flex-grow px-5 font-normal py-3 text-[24px] h-auto text-black placeholder-[#c9b597] focus:outline-none placeholder:tracking-wide placeholder:text-[24px] w-full"
                             value={inputName}
                             onChange={(e) => setInputName(e.target.value)}
                             onKeyDown={(e) => e.key === 'Enter' && handleSubmit()}
